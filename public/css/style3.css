@@ -1,0 +1,290 @@
+::selection { background-color: #E13300; color: white; }
+::-moz-selection { background-color: #E13300; color: white; }
+
+body {
+    background-color: #fff;
+    margin: 40px;
+    font: 13px/20px normal Helvetica, Arial, sans-serif;
+    color: #4F5155;
+}
+
+a {
+    color: #003399;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+h1 {
+    color: #444;
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: normal;
+    padding: 14px 15px 10px 15px;
+}
+
+#container {
+    margin: 20px;
+    box-shadow: 0 0 8px #D0D0D0;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+
+::selection { background-color: #E13300; color: white; }
+::-moz-selection { background-color: #E13300; color: white; }
+
+body {
+    background-color: #fff;
+    margin: 40px;
+    font: 13px/20px normal Helvetica, Arial, sans-serif;
+    color: #4F5155;
+}
+
+a {
+    color: #003399;
+    background-color: transparent;
+    font-weight: normal;
+}
+
+h1 {
+    color: #444;
+    background-color: transparent;
+    border-bottom: 1px solid #D0D0D0;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 0 0 14px 0;
+    padding: 14px 15px 10px 15px;
+}
+
+code {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    margin: 14px 0 14px 0;
+    padding: 12px 10px 12px 10px;
+}
+
+#container {
+    margin: 10px;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #D0D0D0;
+}
+
+p {
+    margin: 12px 15px 12px 15px;
+}
+
+
+::selection { background-color: #E13300; color: white; }
+            ::-moz-selection { background-color: #E13300; color: white; }
+
+            body {
+                background-color: #fff;
+                margin: 40px;
+                font: 13px/20px normal Helvetica, Arial, sans-serif;
+                color: #4F5155;
+            }
+
+            a {
+                color: #003399;
+                background-color: transparent;
+                font-weight: normal;
+            }
+
+            h1 {
+                color: #444;
+                background-color: transparent;
+                border-bottom: 1px solid #D0D0D0;
+                font-size: 19px;
+                font-weight: normal;
+                margin: 0 0 14px 0;
+                padding: 14px 15px 10px 15px;
+            }
+
+            code {
+                font-family: Consolas, Monaco, Courier New, Courier, monospace;
+                font-size: 12px;
+                background-color: #f9f9f9;
+                border: 1px solid #D0D0D0;
+                color: #002166;
+                display: block;
+                margin: 14px 0 14px 0;
+                padding: 12px 10px 12px 10px;
+            }
+
+            #container {
+                margin: 10px;
+                border: 1px solid #D0D0D0;
+                box-shadow: 0 0 8px #D0D0D0;
+            }
+
+            p {
+                margin: 12px 15px 12px 15px;
+            }
+
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            div.main_div{
+                margin: 5px 0;
+                padding: 0 5px;
+                overflow: hidden;
+            }
+        
+            /* Start Add information */
+            div.main_div div.emp_form{
+                width: 400px;
+                margin: 50px auto;
+            }
+            div.main_div div.emp_form form.app_form fieldset{
+                padding: 10px;
+                background: #b7b4b4;
+                border: 1px solid #e3d8d8;
+                box-shadow: 0 0 8px #574E4E;
+                border-radius: 10px;
+            }
+            div.main_div div.emp_form form.app_form fieldset legend{
+                padding: 5px;
+                background: #efe7e7;
+                border: 1px solid #e0e0e0;
+                color: #000;
+                box-shadow: 0 0 8px #574E4E;
+                border-radius: 10px;
+            }
+            div.main_div div.emp_form form.app_form fieldset table{
+                width: 100%;
+            }
+            div.main_div div.emp_form form.app_form fieldset table label{
+                font-family: Arial,sans-serif,fantasy,inherit,Helvetica;
+                font-weight: bold;
+            }
+            div.main_div div.emp_form form.app_form fieldset table input[type=text],
+            div.main_div div.emp_form form.app_form fieldset table input[type=number]{
+                width: 100%;
+                padding: 1% 1%;
+            }
+            div.main_div div.emp_form form.app_form fieldset table input[type=submit]{
+                width: 30%;
+                margin: 2% 35%;
+                padding: 10px 5px;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: Arial,sans-serif;
+                background: #66b770;
+            }
+            /* End Add information*/
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            div.main_div{
+                margin: 5px 0;
+                padding: 0 5px;
+                overflow: hidden;
+            }
+
+            /* Start Show information */
+            div.main_div div.show_info{
+                margin: 1% auto;
+                width: 600px;
+            }
+            div.main_div div.show_info fieldset{
+                padding: 10px;
+                background: #ebeeee;
+                border: 1px solid #b4abab;
+                box-shadow: 0 0 8px #574E4E;
+            }
+            div.main_div div.show_info fieldset legend{
+                padding: 5px;
+                background: #a8efe1;
+                border: 1px solid #84e0d7;
+                color: #000;
+            }
+            div.main_div div.show_info fieldset table{
+                width: 100%;
+            }
+            div.main_div div.show_info fieldset table thead th{
+                font-family: Arial,sans-serif,fantasy,inherit,Helvetica;
+                font-weight: bold;
+                text-align: left;
+                padding: 5px;
+                border-right: 2px solid #ccc;
+                border-bottom: 2px solid #ccc;
+            }
+            div.main_div div.show_info fieldset table thead th:last-child{
+                border-right: none;
+            }
+            div.main_div div.show_info fieldset table tbody td{
+                font-family: Arial,sans-serif,fantasy,inherit,Helvetica;
+                text-align: left;
+                padding: 5px;
+                border-right: 2px solid #ccc;
+                border-bottom: 2px solid #ccc;
+            }
+            div.main_div div.show_info fieldset table tbody td:last-child{
+                border-right: none;
+            }
+            div.main_div div.show_info fieldset table tbody tr:nth-child(2n) td{
+                background: #abb7b4;
+            }
+            /* End Show information*/
+
+
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            div.main_div{
+                margin: 5px 0;
+                padding: 0 5px;
+                overflow: hidden;
+            }
+        
+            /* Start Add information */
+            div.main_div div.emp_form{
+                width: 400px;
+                margin: 50px auto;
+            }
+            div.main_div div.emp_form form.app_form fieldset{
+                padding: 10px;
+                background: #b7b4b4;
+                border: 1px solid #e3d8d8;
+                box-shadow: 0 0 8px #574E4E;
+                border-radius: 10px;
+            }
+            div.main_div div.emp_form form.app_form fieldset legend{
+                padding: 5px;
+                background: #efe7e7;
+                border: 1px solid #e0e0e0;
+                color: #000;
+                box-shadow: 0 0 8px #574E4E;
+                border-radius: 10px;
+            }
+            div.main_div div.emp_form form.app_form fieldset table{
+                width: 100%;
+            }
+            div.main_div div.emp_form form.app_form fieldset table label{
+                font-family: Arial,sans-serif,fantasy,inherit,Helvetica;
+                font-weight: bold;
+            }
+            div.main_div div.emp_form form.app_form fieldset table input[type=text],
+            div.main_div div.emp_form form.app_form fieldset table input[type=number]{
+                width: 100%;
+                padding: 1% 1%;
+            }
+            div.main_div div.emp_form form.app_form fieldset table input[type=submit]{
+                width: 30%;
+                margin: 2% 35%;
+                padding: 10px 5px;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: Arial,sans-serif;
+                background: #66b770;
+            }
+            /* End Add information*/
