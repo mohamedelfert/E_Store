@@ -3,6 +3,7 @@
 namespace PHPMVC\Controllers;
 use PHPMVC\LIB\Helper;
 use PHPMVC\Lib\InputFilter;
+use PHPMVC\Models\UsersGroupsModel;
 use PHPMVC\Models\UsersModel;
 
 class UsersController extends AbstractController
@@ -20,12 +21,15 @@ class UsersController extends AbstractController
     public function addAction(){
         $this->language->load('template.common');
         $this->language->load('users.default');
+
+        $this->_data['groups'] = UsersGroupsModel::getAll();
         $this->_view();
     }
 
     public function editAction(){
         $this->language->load('template.common');
         $this->language->load('users.default');
+        $this->_data['groups'] = UsersGroupsModel::getAll();
         $this->_view();
     }
 }
