@@ -18,6 +18,7 @@ class UsersController extends AbstractController
         'Email'             => 'required|email',
         'CEmail'            => 'required|email',
         'PhoneNumber'       => 'int|max(15)',
+        'GroupId'           => 'required|int'
     ];
 
     public function defaultAction(){
