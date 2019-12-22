@@ -17,7 +17,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="Password"> <?= $text_user_password ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_user_password ?> *" name="Password" id="Password" required />
+                                    <input type="password" class="form-control" placeholder="<?= $text_user_password ?> *" name="Password" id="Password" required />
                                 </label>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="CPassword"> <?= $text_user_confirm_password ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_user_confirm_password ?> *" name="CPassword" id="CPassword" required />
+                                    <input type="password" class="form-control" placeholder="<?= $text_user_confirm_password ?> *" name="CPassword" id="CPassword" required />
                                 </label>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="Email"> <?= $text_user_email ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_user_email ?> *" name="Email" id="Email" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_user_email ?> *" name="Email" id="Email" required />
                                 </label>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="CEmail"> <?= $text_user_confirm_email ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_user_confirm_email ?> *" name="CEmail" id="CEmail" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_user_confirm_email ?> *" name="CEmail" id="CEmail" required />
                                 </label>
                             </div>
                         </div>
