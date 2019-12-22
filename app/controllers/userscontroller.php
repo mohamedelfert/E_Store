@@ -31,6 +31,8 @@ class UsersController extends AbstractController
     public function addAction(){
         $this->language->load('template.common');
         $this->language->load('users.default');
+        $this->language->load('users.labels');
+        $this->language->load('users.errors');
 
         $this->_data['groups'] = UsersGroupsModel::getAll();
         if (isset($_POST['submit'])){
