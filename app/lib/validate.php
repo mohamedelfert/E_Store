@@ -107,13 +107,16 @@ trait Validate
         }
     }
 
-    public function isValid($roles, $inputType = 'post'){
+    public function isValid($roles, $inputType){
         $errors = [];
         if (!empty($roles)){
             foreach ($roles as $filedName => $validationRoles){
-                echo '<pre>';
-                var_dump($filedName,$validationRoles);
-                echo '</pre>';
+                $validationRoles = explode('|', $validationRoles);
+                foreach ($validationRoles as $validationRole){
+                    echo '<pre>';
+                    var_dump($this->$validationRole($inputType[$filedName]),$validationRole);
+                    echo '</pre>';
+                }
             }
         }
         return empty($errors) ? true : false;
