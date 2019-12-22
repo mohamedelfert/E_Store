@@ -524,13 +524,15 @@ body {
   margin-bottom: 20px;
 }
 .btnRegister{
-  margin: 2% auto 2% auto;  border: none;
+  margin: 2% auto 2% auto;
+  border: none;
   border-radius: 1.5rem;
   padding: 2%;
   background: #0062cc;
   color: #fff;
   font-weight: 600;
   width: 10%;
+  height: 20% !important;
   cursor: pointer;
 }
 /******************************************************/
