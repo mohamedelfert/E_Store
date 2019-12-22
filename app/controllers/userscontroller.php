@@ -17,4 +17,15 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
+    public function addAction(){
+        $this->language->load('template.common');
+        $this->language->load('users.default');
+        $this->_view();
+    }
+
+    public function editAction(){
+        $this->language->load('template.common');
+        $this->language->load('users.default');
+        $this->_view();
+    }
 }
