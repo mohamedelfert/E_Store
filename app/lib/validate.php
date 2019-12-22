@@ -111,11 +111,15 @@ trait Validate
         $errors = [];
         if (!empty($roles)){
             foreach ($roles as $filedName => $validationRoles){
+                $value = $inputType[$filedName];
                 $validationRoles = explode('|', $validationRoles);
                 foreach ($validationRoles as $validationRole){
-                    echo '<pre>';
-                    var_dump($this->$validationRole($inputType[$filedName]),$validationRole);
-                    echo '</pre>';
+                    if (preg_match_all('/min\((\d+)\)/', $validationRole,$matches)){
+                        echo '<pre>';
+//                        var_dump($filedName,$value,$this->min($value,$matches[1][0]));
+                        var_dump($matches);
+                        echo '</pre>';
+                    }
                 }
             }
         }
