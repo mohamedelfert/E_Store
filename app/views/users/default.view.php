@@ -31,8 +31,8 @@
                     <td><?= $user->SubscriptionDate?></td>
                     <td><?= $user->LastLogin?></td>
                     <td>
-                        <a href="/users/edit/<?= $user->UserID ?>"><i class="fa fa-edit" style="font-size:20px"></i></a>
-                        <a href="/users/delete/<?= $user->UserID ?>" onclick="if(!confirm('<?= $text_delete_confirm ?>')) return false"><i class="fa fa-trash" style="font-size:20px"></i></a>
+                        <a href="/users/edit/<?= $user->UserId ?>"><i class="fa fa-edit" style="font-size:20px"></i></a>
+                        <a href="/users/delete/<?= $user->UserId ?>" onclick="if(!confirm('<?= $text_delete_confirm ?>')) return false"><i class="fa fa-trash" style="font-size:20px"></i></a>
                     </td>
                 </tr>
             <?php
