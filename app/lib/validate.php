@@ -107,5 +107,15 @@ trait Validate
         }
     }
 
-
+    public function isValid($roles, $inputType = 'post'){
+        $errors = [];
+        if (!empty($roles)){
+            foreach ($roles as $filedName => $validationRoles){
+                echo '<pre>';
+                var_dump($filedName,$validationRoles);
+                echo '</pre>';
+            }
+        }
+        return empty($errors) ? true : false;
+    }
 }
