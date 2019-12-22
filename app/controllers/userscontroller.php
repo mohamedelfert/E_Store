@@ -16,4 +16,5 @@ class UsersController extends AbstractController
         $this ->_data ['users'] = UsersModel::getAll();
         $this->_view();
     }
+
 }
