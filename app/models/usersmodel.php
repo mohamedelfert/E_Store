@@ -12,6 +12,7 @@ class UsersModel extends AbstractModel
     public $SubscriptionDate;
     public $LastLogin;
     public $GroupId;
+    public $Status;
 
     protected static $tableName = 'app_users';
 
@@ -23,7 +24,8 @@ class UsersModel extends AbstractModel
         'PhoneNumber'      => self::DATA_TYPE_STR,
         'SubscriptionDate' => self::DATA_TYPE_DATE,
         'LastLogin'        => self::DATA_TYPE_STR,
-        'GroupId'          => self::DATA_TYPE_INT
+        'GroupId'          => self::DATA_TYPE_INT,
+        'Status'           => self::DATA_TYPE_INT
     );
 
     protected static $primaryKey = 'UserId';

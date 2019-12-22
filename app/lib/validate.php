@@ -4,13 +4,6 @@ namespace PHPMVC\Lib;
 
 trait Validate
 {
-        /*
-         * ^ تبدأ ب
-         * $ تنتهي ب
-         * + مره او اكثر
-         * ؟ 0 مره او مره
-         * () جروب
-        */
     private $_regexPatterns = [
         'num'         => '/^[0-9]+(?:\.[0-9]+)?$/',
         'int'         => '/^[0-9]+$/',
@@ -113,5 +106,6 @@ trait Validate
             return mb_strlen($value) >= $min && mb_strlen($value) <= $max;
         }
     }
+
 
 }
