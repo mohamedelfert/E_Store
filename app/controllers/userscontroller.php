@@ -11,6 +11,15 @@ class UsersController extends AbstractController
     use InputFilter;
     use Helper;
 
+    private $_createActionRoles = [
+        'Username'          => 'required|alpha_num|min(4)|max(15)',
+        'Password'          => 'required|min(8)',
+        'CPassword'         => 'required|min(8)',
+        'Email'             => 'required|email',
+        'CEmail'            => 'required|email',
+        'PhoneNumber'       => 'int|max(15)',
+    ];
+
     public function defaultAction(){
         $this->language->load('template.common');
         $this->language->load('users.default');
@@ -23,6 +32,9 @@ class UsersController extends AbstractController
         $this->language->load('users.default');
 
         $this->_data['groups'] = UsersGroupsModel::getAll();
+        if (isset($_POST['submit'])){
+            $this->isValid($this->_createActionRoles, $_POST);
+        }
         $this->_view();
     }
 
