@@ -4,9 +4,63 @@ namespace PHPMVC\Lib;
 
 trait Validate
 {
+        /*
+         * ^ تبدأ ب
+         * $ تنتهي ب
+         * + مره او اكثر
+         * ؟ 0 مره او مره
+         * () جروب
+        */
     private $_regexPatterns = [
-
+        'num'         => '/^[0-9]+(?:\.[0-9]+)?$/',
+        'int'         => '/^[0-9]+$/',
+        'float'       => '/^[0-9]+\.[0-9]+$/',
+        'alpha'       => '/^[a-zA-Z\p{Arabic}]+$/u',
+        'alpha_num'   => '/^[a-zA-Z\p{Arabic}0-9]+$/u',
+        'v_date'      => '/^[1-2][0-9][0-9][0-9]-(?:(?:0[1-9])|(?:1[0-2]))-(?:(?:0[1-9])|(?:(?:1|2)[0-9])|(?:3[0-1]))$/',
+        'email'       => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+        'url'         => '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/'
     ];
+
+    public function num($value){
+        return (bool) preg_match($this->_regexPatterns['num'], $value);
+    }
+
+    public function int($value){
+        return (bool) preg_match($this->_regexPatterns['int'], $value);
+    }
+
+    public function float($value){
+        return (bool) preg_match($this->_regexPatterns['float'], $value);
+    }
+
+    public function floatLike($value, $before, $after){
+        if (!$this->float($value)){
+            return false;
+        }
+        $pattern = '/^[0-9]{'. $before . '}\.[0-9]{' . $after . '}$/';
+        return (bool) preg_match($pattern, $value);
+    }
+
+    public function alpha($value){
+        return (bool) preg_match($this->_regexPatterns['alpha'], $value);
+    }
+
+    public function alpha_num($value){
+        return (bool) preg_match($this->_regexPatterns['alpha_num'], $value);
+    }
+
+    public function v_date($value){
+        return (bool) preg_match($this->_regexPatterns['v_date'], $value);
+    }
+
+    public function email($value){
+        return (bool) preg_match($this->_regexPatterns['email'], $value);
+    }
+
+    public function url($value){
+        return (bool) preg_match($this->_regexPatterns['url'], $value);
+    }
 
     public function required($value){
         return $value != '' || !empty($value);
