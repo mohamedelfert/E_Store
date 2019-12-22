@@ -83,19 +83,19 @@ trait Validate
         }
     }
 
-    public function min($value, $matchAgainst){
+    public function min($value, $min){
         if (is_numeric($value)){
-            return $value >= $matchAgainst;
+            return $value >= $min;
         }elseif (is_string($value)){
-            return mb_strlen($value) >= $matchAgainst;
+            return mb_strlen($value) >= $min;
         }
     }
 
-    public function max($value, $matchAgainst){
+    public function max($value, $max){
         if (is_numeric($value)){
-            return $value <= $matchAgainst;
+            return $value <= $max;
         }elseif (is_string($value)){
-            return mb_strlen($value) <= $matchAgainst;
+            return mb_strlen($value) <= $max;
         }
     }
 
@@ -115,14 +115,14 @@ trait Validate
                 $validationRoles = explode('|', $validationRoles);
                 foreach ($validationRoles as $validationRole){
                     if (preg_match_all('/min\((\d+)\)/', $validationRole,$matches)){
-                        echo '<pre>';
-//                        var_dump($filedName,$value,$this->min($value,$matches[1][0]));
-                        var_dump($matches);
-                        echo '</pre>';
+                        if ($this->min($value,$matches[1][0]) === false){
+                            $errors[$filedName] = $validationRole;
+                        }
                     }
                 }
             }
         }
+        var_dump($errors);
         return empty($errors) ? true : false;
     }
 }
