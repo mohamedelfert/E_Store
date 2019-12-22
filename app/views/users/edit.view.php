@@ -33,7 +33,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="Email"> <?= $text_user_email ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="email" class="form-control" placeholder="<?= $text_user_email ?> *" name="Email" id="Email" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_user_email ?> *" name="Email" id="Email" maxlength="40" required />
                                 </label>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="CEmail"> <?= $text_user_confirm_email ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="email" class="form-control" placeholder="<?= $text_user_confirm_email ?> *" name="CEmail" id="CEmail" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_user_confirm_email ?> *" name="CEmail" id="CEmail" maxlength="40" required />
                                 </label>
                             </div>
                         </div>
@@ -59,9 +59,16 @@
                                 <label class="control-label col-sm-9">
                                     <select class="form-control" name="GroupId" id="GroupId">
                                         <option class="hidden" value=""> <?= $text_group_select ?> </option>
-                                        <option value="1"> <?= $text_group_1 ?> </option>
-                                        <option value="2"> <?= $text_group_2 ?> </option>
-                                        <option value="2"> <?= $text_group_3 ?> </option>
+                                        <?php
+                                        /** @var TYPE_NAME $groups */
+                                        if ($groups !== false) {
+                                            foreach ($groups as $group) {
+                                                ?>
+                                                <option value="<?= $group->GroupId ?>"> <?= $group->GroupName ?> </option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </label>
                             </div>
