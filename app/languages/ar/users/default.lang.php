@@ -16,6 +16,3 @@ $_['text_update_user']               = 'تعديل بيانات المستخدم
 $_['text_delete_confirm']            = 'هل تريد حذف هذا المستخدم ؟';
 $_['text_update']                    = 'تحديث';
 $_['text_group_select']              = 'إختر المجموعه ؟';
-$_['text_group_1']                   = 'المدير';
-$_['text_group_2']                   = 'المحاسب';
-$_['text_group_3']                   = 'أمين مخزن';

@@ -16,6 +16,3 @@ $_['text_delete_confirm']            = 'Do You Want To Delete This User ?';
 $_['text_add']                       = 'Add';
 $_['text_update']                    = 'Update';
 $_['text_group_select']              = 'Select Group ?';
-$_['text_group_1']                   = 'Admin';
-$_['text_group_2']                   = 'Accountant';
-$_['text_group_3']                   = 'Store Keeper';
