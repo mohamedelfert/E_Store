@@ -122,15 +122,15 @@
 
 <?php
 $messages = $this->messenger->getMessages();
-if(!empty($messages)) {
-    foreach ($messages as $message){
-        echo '<p class="message t' . $message[1] . '">' . $message[0] . '</p>';
-    }
-}
-
-//if (!empty($messages)){
-//    foreach ($messages as $message) {
-//        echo '<p class="message t' . $message[1] . '"><a href="" class="closeBtn"><i class="fa fa-times"></i> ' . $message[0] . ' </a></p>';
+//if(!empty($messages)) {
+//    foreach ($messages as $message){
+//        echo '<p class="message t' . $message[1] . '">' . $message[0] . '</p>';
 //    }
 //}
+
+if (!empty($messages)){
+    foreach ($messages as $message) {
+        echo '<p class="message t' . $message[1] . '"><a href="" class="closeBtn"><i class="fa fa-times"></i> ' . $message[0] . ' </a></p>';
+    }
+}
 ?>
