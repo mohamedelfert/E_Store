@@ -116,7 +116,19 @@ trait Validate
                 foreach ($validationRoles as $validationRole){
                     if (preg_match_all('/(min)\((\d+)\)/', $validationRole,$matches)){
                         if ($this->min($value,$matches[2][0]) === false){
-                            $this->messenger->add($this->language->getDictionary()['text_label_' . $filedName] . ' ' . $this->language->getDictionary()['text_error_' . $matches[1][0]],Messenger::APP_MESSAGE_ERROR);
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+//                                $this->language->getDictionary()['text_label_' . $filedName] . ' ' . $this->language->getDictionary()['text_error_' . $matches[1][0]],
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(max)\((\d+)\)/', $validationRole,$matches)){
+                        if ($this->max($value,$matches[2][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+//                                $this->language->getDictionary()['text_label_' . $filedName] . ' ' . $this->language->getDictionary()['text_error_' . $matches[1][0]],
+                                Messenger::APP_MESSAGE_ERROR
+                            );
                         }
                     }
                 }
