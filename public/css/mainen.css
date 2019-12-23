@@ -582,3 +582,6 @@ p a.closeBtn{
   font-size: 1em;
   font-weight: bold;
 }
+a.closeBtn i{
+  float: right;
+}
