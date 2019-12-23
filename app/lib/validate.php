@@ -118,7 +118,6 @@ trait Validate
                         if ($this->min($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
-//                                $this->language->getDictionary()['text_label_' . $filedName] . ' ' . $this->language->getDictionary()['text_error_' . $matches[1][0]],
                                 Messenger::APP_MESSAGE_ERROR
                             );
                         }
@@ -126,7 +125,55 @@ trait Validate
                         if ($this->max($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
-//                                $this->language->getDictionary()['text_label_' . $filedName] . ' ' . $this->language->getDictionary()['text_error_' . $matches[1][0]],
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(less)\((\d+)\)/', $validationRole,$matches)){
+                        if ($this->less($value,$matches[2][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(greater)\((\d+)\)/', $validationRole,$matches)){
+                        if ($this->greater($value,$matches[2][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(equal)\((\d+)\)/', $validationRole,$matches)){
+                        if ($this->equal($value,$matches[2][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(equal_field)\((\d+)\)/', $validationRole,$matches)){
+                        if ($this->equal_field($value,$matches[2][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(between)\((\d+),(\d+)\)/', $validationRole,$matches)){
+                        if ($this->between($value,$matches[2][0],[3][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } elseif (preg_match_all('/(floatlike)\((\d+),(\d+)\)/', $validationRole,$matches)){
+                        if ($this->floatlike($value,$matches[2][0],[3][0]) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
+                                Messenger::APP_MESSAGE_ERROR
+                            );
+                        }
+                    } else{
+                        if ($this->$validationRole($value) === false){
+                            $this->messenger->add(
+                                $this->language->feedkey('text_error_'. $validationRole, [$this->language->get('text_label_'. $filedName)]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
                         }
