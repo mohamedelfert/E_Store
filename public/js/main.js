@@ -45,11 +45,11 @@ $('div.radio_button, div.checkbox_button, label.radio span, label.checkbox span,
      evt.stopPropagation();
 });
 
-// set timeout about 5 second
-setTimeout(function()
-{
-    $('p.message').fadeOut();
-}, 5000);
+// // set timeout about 5 second
+// setTimeout(function()
+// {
+//     $('p.message').fadeOut();
+// }, 5000);
 
 (function()
 {
