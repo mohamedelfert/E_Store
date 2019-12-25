@@ -29,4 +29,16 @@ class UsersModel extends AbstractModel
     );
 
     protected static $primaryKey = 'UserId';
+
+    public function cryptPassword($password){
+        $salt = '$2a$07$yeNCSNwRpYopOhv0TrrReP$';
+        $this->Password = crypt($password, $salt);
+    }
+
+    public static function getAll()
+    {
+        return self::get(
+            'SELECT * FROM ' . self::$tableName . ' INNER JOIN app_users_groups ON ' . self::$tableName . ' .GroupId = app_users_groups.GroupId'
+        );
+    }
 }
