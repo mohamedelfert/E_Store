@@ -16,4 +16,8 @@ trait InputFilter     /* trait دي كل مهمتها ان فيها شوية fun
     public function filterFloat($input){
         return filter_var($input,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
     }
+
+    public function filterEmail($input){
+        return filter_var($input,FILTER_SANITIZE_EMAIL);
+    }
 }

@@ -164,8 +164,8 @@ trait Validate
                         }
                     } elseif (preg_match_all('/(equal_field)\((\w+)\)/', $validationRole,$matches)){
                         // In Case Of equal_field Role
-                        $otherField = $inputType[$matches[2][0]];
-                        if ($this->equal_field($value,$otherField) === false){
+                        $otherEqualField = $inputType[$matches[2][0]];
+                        if ($this->equal_field($value,$otherEqualField) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$this->language->get('text_label_'. $matches[2][0])]),
                                 Messenger::APP_MESSAGE_ERROR
