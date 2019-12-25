@@ -114,6 +114,9 @@ trait Validate
                 $value = $inputType[$filedName];
                 $validationRoles = explode('|', $validationRoles);
                 foreach ($validationRoles as $validationRole){
+                    if (array_key_exists($filedName,$errors)){
+                        continue;
+                    }
                     if (preg_match_all('/(min)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of min Role
                         if ($this->min($value,$matches[2][0]) === false){
@@ -121,6 +124,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(max)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of max Role
@@ -129,6 +133,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(less)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of less Role
@@ -137,6 +142,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(greater)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of greater Role
@@ -145,6 +151,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(equal)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of equal Role
@@ -153,6 +160,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(equal_field)\((\d+)\)/', $validationRole,$matches)){
                         // In Case Of equal_field Role
@@ -161,6 +169,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(between)\((\d+),(\d+)\)/', $validationRole,$matches)){
                         // In Case Of between Role
@@ -169,6 +178,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } elseif (preg_match_all('/(floatLike)\((\d+),(\d+)\)/', $validationRole,$matches)){
                         // In Case Of floatLike Role
@@ -177,6 +187,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     } else{
                         // Other Case Role
@@ -185,6 +196,7 @@ trait Validate
                                 $this->language->feedkey('text_error_'. $validationRole, [$this->language->get('text_label_'. $filedName)]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
+                            $errors[$filedName] = true;
                         }
                     }
                 }
