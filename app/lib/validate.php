@@ -68,42 +68,42 @@ trait Validate
     }
 
     public function less($value, $matchAgainst){
-        if (is_numeric($value)){
-            return $value < $matchAgainst;
-        }elseif (is_string($value)){
+        if (is_string($value)){
             return mb_strlen($value) < $matchAgainst;
+        } elseif (is_numeric($value)){
+            return $value < $matchAgainst;
         }
     }
 
     public function greater($value, $matchAgainst){
-        if (is_numeric($value)){
-            return $value > $matchAgainst;
-        }elseif (is_string($value)){
+        if (is_string($value)){
             return mb_strlen($value) > $matchAgainst;
+        } elseif (is_numeric($value)){
+            return $value > $matchAgainst;
         }
     }
 
     public function min($value, $min){
-        if (is_numeric($value)){
-            return $value >= $min;
-        }elseif (is_string($value)){
+        if (is_string($value)){
             return mb_strlen($value) >= $min;
+        } elseif (is_numeric($value)){
+            return $value >= $min;
         }
     }
 
     public function max($value, $max){
-        if (is_numeric($value)){
-            return $value <= $max;
-        }elseif (is_string($value)){
+        if (is_string($value)){
             return mb_strlen($value) <= $max;
+        } elseif (is_numeric($value)){
+                return $value <= $max;
         }
     }
 
     public function between($value, $min, $max){
-        if (is_numeric($value)){
-            return $value >= $min && $value <= $max;
-        }elseif (is_string($value)){
+        if (is_string($value)){
             return mb_strlen($value) >= $min && mb_strlen($value) <= $max;
+        } elseif (is_numeric($value)){
+            return $value >= $min && $value <= $max;
         }
     }
 
