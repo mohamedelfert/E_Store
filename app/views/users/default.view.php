@@ -26,7 +26,7 @@
             ?>
                 <tr>
                     <td><?= $user->Username?></td>
-                    <td><?= $user->GroupId?></td>
+                    <td><?= $user->GroupName?></td>
                     <td><?= $user->Email?></td>
                     <td><?= $user->SubscriptionDate?></td>
                     <td><?= $user->LastLogin?></td>
