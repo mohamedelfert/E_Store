@@ -13,9 +13,9 @@ class UsersController extends AbstractController
 
     private $_createActionRoles = [
         'Username'          => 'required|alpha_num|between(5,10)',
-        'Password'          => 'required|min(8)',
+        'Password'          => 'required|min(8)|equal_field(CPassword)',
         'CPassword'         => 'required|min(8)',
-        'Email'             => 'required|email',
+        'Email'             => 'required|email|equal_field(CEmail)',
         'CEmail'            => 'required|email',
         'PhoneNumber'       => 'alpha_num|max(15)',
         'GroupId'           => 'required|int'
