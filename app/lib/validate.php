@@ -153,7 +153,7 @@ trait Validate
                             );
                             $errors[$filedName] = true;
                         }
-                    } elseif (preg_match_all('/(equal)\((\d+)\)/', $validationRole,$matches)){
+                    } elseif (preg_match_all('/(equal)\((\w+)\)/', $validationRole,$matches)){
                         // In Case Of equal Role
                         if ($this->equal($value,$matches[2][0]) === false){
                             $this->messenger->add(
@@ -162,7 +162,7 @@ trait Validate
                             );
                             $errors[$filedName] = true;
                         }
-                    } elseif (preg_match_all('/(equal_field)\((\d+)\)/', $validationRole,$matches)){
+                    } elseif (preg_match_all('/(equal_field)\((\w+)\)/', $validationRole,$matches)){
                         // In Case Of equal_field Role
                         if ($this->equal_field($value,$matches[2][0]) === false){
                             $this->messenger->add(
@@ -173,7 +173,7 @@ trait Validate
                         }
                     } elseif (preg_match_all('/(between)\((\d+),(\d+)\)/', $validationRole,$matches)){
                         // In Case Of between Role
-                        if ($this->between($value,$matches[2][0],[3][0]) === false){
+                        if ($this->between($value,$matches[2][0],$matches[3][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
@@ -182,7 +182,7 @@ trait Validate
                         }
                     } elseif (preg_match_all('/(floatLike)\((\d+),(\d+)\)/', $validationRole,$matches)){
                         // In Case Of floatLike Role
-                        if ($this->floatLike($value,$matches[2][0],[3][0]) === false){
+                        if ($this->floatLike($value,$matches[2][0],$matches[3][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
