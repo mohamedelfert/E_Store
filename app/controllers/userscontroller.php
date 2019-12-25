@@ -17,7 +17,7 @@ class UsersController extends AbstractController
         'CPassword'         => 'required|min(8)',
         'Email'             => 'required|email',
         'CEmail'            => 'required|email',
-        'PhoneNumber'       => 'alpha_num|max(15)',
+        'PhoneNumber'       => 'int|max(15)',
         'GroupId'           => 'required|int'
     ];
 
