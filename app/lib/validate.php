@@ -115,6 +115,7 @@ trait Validate
                 $validationRoles = explode('|', $validationRoles);
                 foreach ($validationRoles as $validationRole){
                     if (preg_match_all('/(min)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of min Role
                         if ($this->min($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -122,6 +123,7 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(max)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of max Role
                         if ($this->max($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -129,6 +131,7 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(less)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of less Role
                         if ($this->less($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -136,6 +139,7 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(greater)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of greater Role
                         if ($this->greater($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -143,6 +147,7 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(equal)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of equal Role
                         if ($this->equal($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -150,6 +155,7 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(equal_field)\((\d+)\)/', $validationRole,$matches)){
+                        // In Case Of equal_field Role
                         if ($this->equal_field($value,$matches[2][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0]]),
@@ -157,20 +163,23 @@ trait Validate
                             );
                         }
                     } elseif (preg_match_all('/(between)\((\d+),(\d+)\)/', $validationRole,$matches)){
+                        // In Case Of between Role
                         if ($this->between($value,$matches[2][0],[3][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
                         }
-                    } elseif (preg_match_all('/(floatlike)\((\d+),(\d+)\)/', $validationRole,$matches)){
-                        if ($this->floatlike($value,$matches[2][0],[3][0]) === false){
+                    } elseif (preg_match_all('/(floatLike)\((\d+),(\d+)\)/', $validationRole,$matches)){
+                        // In Case Of floatLike Role
+                        if ($this->floatLike($value,$matches[2][0],[3][0]) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $matches[1][0], [$this->language->get('text_label_'. $filedName),$matches[2][0],$matches[3][0]]),
                                 Messenger::APP_MESSAGE_ERROR
                             );
                         }
                     } else{
+                        // Other Case Role
                         if ($this->$validationRole($value) === false){
                             $this->messenger->add(
                                 $this->language->feedkey('text_error_'. $validationRole, [$this->language->get('text_label_'. $filedName)]),
