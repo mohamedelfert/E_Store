@@ -9,7 +9,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="Username"> <?= $text_label_Username ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_label_Username ?> *" name="Username" id="Username" required value="<?= $users->Username ?>" />
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_Username ?> *" name="Username" id="Username" required value="<?= $this->showValue('Username', $users) ?>" />
                                 </label>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                         if ($groups !== false) {
                                             foreach ($groups as $group) {
                                                 ?>
-                                                <option value="<?= $group->GroupId ?>"> <?= $group->GroupName ?> </option>
+                                                <option value="<?= $group->GroupId ?>" <?= $this->selectedGroup('GroupId',$group->GroupId,$users) ?> > <?= $group->GroupName ?> </option>
                                                 <?php
                                             }
                                         }
