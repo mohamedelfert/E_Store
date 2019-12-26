@@ -25,7 +25,7 @@ class UsersController extends AbstractController
     public function defaultAction(){
         $this->language->load('template.common');
         $this->language->load('users.default');
-        $this ->_data ['users'] = UsersModel::getAll();
+        $this->_data['users'] = UsersModel::getAll();
         $this->_view();
     }
 
@@ -58,9 +58,20 @@ class UsersController extends AbstractController
     }
 
     public function editAction(){
+        $id = $this->filterInteger($this->_params[0]);
+        $users = UsersModel::getByPk($id);
+        if ($users === false){
+            $this->redirect('/users');
+        }
+        $this->_data['users']  = $users;
+
         $this->language->load('template.common');
         $this->language->load('users.default');
+        $this->language->load('users.labels');
+        $this->language->load('users.errors');
+        $this->language->load('users.messages');
         $this->_data['groups'] = UsersGroupsModel::getAll();
+
         $this->_view();
     }
 }
