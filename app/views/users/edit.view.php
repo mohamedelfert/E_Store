@@ -7,49 +7,49 @@
                     <div class="row register-form">
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="Username"> <?= $text_username ?> : </label>
+                                <label class="control-label col-sm-12" for="Username"> <?= $text_label_Username ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_username ?> *" name="Username" id="Username" required />
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_Username ?> *" name="Username" id="Username" required value="<?= $users->Username ?>" />
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="Password"> <?= $text_user_password ?> : </label>
+                                <label class="control-label col-sm-12" for="Password"> <?= $text_label_Password ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="password" class="form-control" placeholder="<?= $text_user_password ?> *" name="Password" id="Password" required />
+                                    <input type="password" class="form-control" placeholder="<?= $text_label_Password ?> *" name="Password" id="Password" required value="<?= $users->Password ?>" />
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="CPassword"> <?= $text_user_confirm_password ?> : </label>
+                                <label class="control-label col-sm-12" for="CPassword"> <?= $text_label_CPassword ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="password" class="form-control" placeholder="<?= $text_user_confirm_password ?> *" name="CPassword" id="CPassword" required />
+                                    <input type="password" class="form-control" placeholder="<?= $text_label_CPassword ?> *" name="CPassword" id="CPassword" required value="<?= $users->CPassword ?>" />
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="Email"> <?= $text_user_email ?> : </label>
+                                <label class="control-label col-sm-12" for="Email"> <?= $text_label_Email ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="email" class="form-control" placeholder="<?= $text_user_email ?> *" name="Email" id="Email" maxlength="40" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_label_Email ?> *" name="Email" id="Email" maxlength="40" required value="<?= $users->Email ?>" />
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="CEmail"> <?= $text_user_confirm_email ?> : </label>
+                                <label class="control-label col-sm-12" for="CEmail"> <?= $text_label_CEmail ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="email" class="form-control" placeholder="<?= $text_user_confirm_email ?> *" name="CEmail" id="CEmail" maxlength="40" required />
+                                    <input type="email" class="form-control" placeholder="<?= $text_label_CEmail ?> *" name="CEmail" id="CEmail" maxlength="40" required value="<?= $users->CEmail ?>" />
                                 </label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-12" for="PhoneNumber"> <?= $text_user_phone_number ?> : </label>
+                                <label class="control-label col-sm-12" for="PhoneNumber"> <?= $text_label_PhoneNumber ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_user_phone_number ?> *" name="PhoneNumber" id="PhoneNumber" maxlength="11" required />
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_PhoneNumber ?> *" name="PhoneNumber" id="PhoneNumber" maxlength="11" required value="<?= $users->PhoneNumber ?>" />
                                 </label>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                 <label class="control-label col-sm-5" for="GroupId"> <?= $text_user_group ?> : </label>
                                 <label class="control-label col-sm-9">
                                     <select class="form-control" name="GroupId" id="GroupId">
-                                        <option class="hidden" value=""> <?= $text_group_select ?> </option>
+                                        <option class="hidden" value=""> <?= $text_label_GroupId ?> </option>
                                         <?php
                                         /** @var TYPE_NAME $groups */
                                         if ($groups !== false) {
