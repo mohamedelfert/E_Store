@@ -25,7 +25,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="CPassword"> <?= $text_label_CPassword ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="password" class="form-control" placeholder="<?= $text_label_CPassword ?> *" name="CPassword" id="CPassword" required value="<?= $users->CPassword ?>" />
+                                    <input type="password" class="form-control" placeholder="<?= $text_label_CPassword ?> *" name="CPassword" id="CPassword" required value="<?= $users->Password ?>" />
                                 </label>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="CEmail"> <?= $text_label_CEmail ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="email" class="form-control" placeholder="<?= $text_label_CEmail ?> *" name="CEmail" id="CEmail" maxlength="40" required value="<?= $users->CEmail ?>" />
+                                    <input type="email" class="form-control" placeholder="<?= $text_label_CEmail ?> *" name="CEmail" id="CEmail" maxlength="40" required value="<?= $users->Email ?>" />
                                 </label>
                             </div>
                         </div>
