@@ -30,7 +30,7 @@ class AbstractModel
     }
 
     // function دي بتبني الجملة بتاعتي في تركيبها زي ( insert into tablename set name = : name ) وفي النهاية trim لعلامة , من نهاية او بداية الجملة
-    private function bulidParamNameSql()
+    private function buildParamNameSql()
     {
         $paramName = '';
         foreach(static::$tableSchema as $colName => $type){
@@ -41,7 +41,7 @@ class AbstractModel
 
     private function create()
     {
-        $sql = 'INSERT INTO ' . static::$tableName . ' SET ' . self::bulidParamNameSql();
+        $sql = 'INSERT INTO ' . static::$tableName . ' SET ' . self::buildParamNameSql();
         $stmt = DatabaseHandler::factory()->prepare($sql);
         $this->prepareValues($stmt);
         if ($stmt->execute()){
@@ -53,7 +53,7 @@ class AbstractModel
 
     private function update()
     {
-        $sql = 'UPDATE ' . static::$tableName . ' SET ' . self::bulidParamNameSql() . ' WHERE ' . static::$primaryKey . ' = ' . $this->{static::$primaryKey};
+        $sql = 'UPDATE ' . static::$tableName . ' SET ' . self::buildParamNameSql() . ' WHERE ' . static::$primaryKey . ' = ' . $this->{static::$primaryKey};
         $stmt = DatabaseHandler::factory()->prepare($sql);
         $this->prepareValues($stmt);
         return $stmt->execute();
