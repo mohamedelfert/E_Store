@@ -21,7 +21,9 @@ class AbstractModel
             {
                 $sanitizedValue = filter_var($this->$colName,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
                 $stmt->bindValue(":{$colName}",$sanitizedValue);
-            }else{
+            } elseif ($type == 5){
+                $stmt->bindValue(":{$colName}",$this->$colName);
+            } else{
                 $stmt->bindValue(":{$colName}",$this->$colName,$type);
             }
         }
