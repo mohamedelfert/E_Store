@@ -22,14 +22,16 @@ class UsersController extends AbstractController
         'GroupId'           => 'required|int'
     ];
 
-    public function defaultAction(){
+    public function defaultAction()
+    {
         $this->language->load('template.common');
         $this->language->load('users.default');
         $this->_data['users'] = UsersModel::getAll();
         $this->_view();
     }
 
-    public function addAction(){
+    public function addAction()
+    {
         $this->language->load('template.common');
         $this->language->load('users.default');
         $this->language->load('users.labels');
@@ -37,6 +39,7 @@ class UsersController extends AbstractController
         $this->language->load('users.messages');
 
         $this->_data['groups'] = UsersGroupsModel::getAll();
+
         if (isset($_POST['submit']) && $this->isValid($this->_createActionRoles, $_POST)){
             $user = new UsersModel();
             $user->Username          = $this->filterString($_POST['Username']);
@@ -57,7 +60,8 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
-    public function editAction(){
+    public function editAction()
+    {
         $id = $this->filterInteger($this->_params[0]);
         $users = UsersModel::getByPk($id);
         if ($users === false){
