@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2019 at 10:41 PM
+-- Generation Time: Dec 28, 2019 at 11:31 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -242,7 +242,10 @@ CREATE TABLE `app_users` (
 --
 
 INSERT INTO `app_users` (`UserId`, `Username`, `Password`, `Email`, `PhoneNumber`, `SubscriptionDate`, `LastLogin`, `GroupId`, `Status`) VALUES
-(1, 'mohamed', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '0000-00-00', '2019-12-28 22:38:22', 1, 1);
+(1, 'محمد', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '2019-12-28', '2019-12-28 23:20:30', 1, 1),
+(2, 'اسامه', '$2a$07$yeNCSNwRpYopOhv0TrrReOCycf/bQRYwqQUen6DXJCt8b1yNTYs8.', 'osama@gmail.com', '56465456454', '2019-12-28', '2019-12-28 23:20:51', 2, 1),
+(3, 'عاصم', '$2a$07$yeNCSNwRpYopOhv0TrrReOrEnrOTz9pXxJO4dRQE5YHcw6YbHKVWa', 'asem@yahoo.com', '12315644898', '2019-12-28', '2019-12-28 23:21:17', 3, 1),
+(4, 'احمد', '$2a$07$yeNCSNwRpYopOhv0TrrReOCycf/bQRYwqQUen6DXJCt8b1yNTYs8.', 'ahmed@yahoo.com', '12315644898', '2019-12-28', '2019-12-28 23:21:41', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -559,7 +562,7 @@ ALTER TABLE `app_suppliers`
 -- AUTO_INCREMENT for table `app_users`
 --
 ALTER TABLE `app_users`
-  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `app_users_groups`
