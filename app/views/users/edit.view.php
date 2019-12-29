@@ -9,7 +9,7 @@
                             <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="PhoneNumber"> <?= $text_label_PhoneNumber ?> : </label>
                                 <label class="control-label col-sm-12">
-                                    <input type="text" class="form-control" placeholder="<?= $text_label_PhoneNumber ?> *" name="PhoneNumber" id="PhoneNumber" maxlength="11" required value="<?= $users->PhoneNumber ?>" />
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_PhoneNumber ?> *" name="PhoneNumber" id="PhoneNumber" maxlength="11" required value="<?= $this->showValue('PhoneNumber', $users) ?>" />
                                 </label>
                             </div>
                         </div>
