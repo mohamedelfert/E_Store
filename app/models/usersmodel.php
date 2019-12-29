@@ -55,4 +55,13 @@ class UsersModel extends AbstractModel
     {
         return self::get('SELECT * FROM ' . self::$tableName . ' WHERE PhoneNumber = "' . $phone . '"');
     }
+
+    public static function authenticate($username, $password , $session){
+        $password = crypt($password, APP_SALT);
+        $sql = 'SELECT * FROM ' . self::$tableName . ' WHERE Username = "' . $username . '" AND Password = "' . $password . '"';
+        $foundUser = self::getOne($sql);
+        if ($foundUser !== false){
+            $session->user = $foundUser;
+        }
+    }
 }
