@@ -51,6 +51,7 @@ $('div.radio_button, div.checkbox_button, label.radio span, label.checkbox span,
 //     $('p.message').fadeOut();
 // }, 5000);
 
+// add event on message to close it
 (function()
 {
     var closeMessageButtons = document.querySelectorAll('p.message a.closeBtn');
@@ -85,24 +86,24 @@ $('li.submenu > a').click(function()
     }
 });
 
+// add event on input when it unique input in database
 (function()
 {
     var userNameField = document.querySelector('input[name=Username]');
-    if(null !== userNameField) {
+    if(userNameField !== null) {
         userNameField.addEventListener('blur', function()
         {
             var req = new XMLHttpRequest();
-            req.open('POST', 'http://www.elecstore.com/users/checkuserexistsajax');
+            req.open('POST', 'http://elecstore.com/users/checkuserexistsajax');
             req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
             req.onreadystatechange = function()
             {
                 var iElem = document.createElement('i');
                 if(req.readyState == req.DONE && req.status == 200) {
                     if(req.response == 1) {
-                        iElem.className = 'fa fa-times error';
+                        iElem.className = 'fa fa-times found';
                     } else if(req.response == 2) {
-                        iElem.className = 'fa fa-check success';
+                        iElem.className = 'fa fa-check notfound';
                     }
                     var iElems = userNameField.parentNode.childNodes;
                     for ( var i = 0, ii = iElems.length; i < ii; i++ )
@@ -114,7 +115,6 @@ $('li.submenu > a').click(function()
                     userNameField.parentNode.appendChild(iElem);
                 }
             }
-
             req.send("Username=" + this.value);
         }, false);
     }
