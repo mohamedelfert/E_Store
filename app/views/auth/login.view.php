@@ -234,22 +234,22 @@
             <div class="wrapper fadeInDown">
                 <div id="formContent">
                     <!-- Tabs Titles -->
-
+                    <h1><?= $text_login_title ?></h1>
                     <!-- Icon -->
                     <div class="fadeIn first">
                         <img src="/images/non-avatar.png" width="20" height="20" id="icon" alt="User Icon" />
                     </div>
 
                     <!-- Login Form -->
-                    <form>
-                        <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="Username">
-                        <input type="text" id="Password" class="fadeIn third" name="Password" placeholder="password">
-                        <input type="submit" class="fadeIn fourth" value="Log In">
+                    <form class="app_form" method="post" enctype="application/x-www-form-urlencoded">
+                        <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="<?= $text_Username ?>">
+                        <input type="text" id="Password" class="fadeIn third" name="Password" placeholder="<?= $text_Password ?>">
+                        <input type="submit" class="fadeIn fourth" value="<?= $text_button ?>">
                     </form>
 
                     <!-- Remind Passowrd -->
                     <div id="formFooter">
-                        <a class="underlineHover" href="#">Forgot Password?</a>
+                        <a class="underlineHover" href="#"><?= $text_forgotpassword ?></a>
                     </div>
 
                 </div>

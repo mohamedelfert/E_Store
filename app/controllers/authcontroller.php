@@ -4,7 +4,9 @@ namespace PHPMVC\Controllers;
 
 class AuthController extends AbstractController
 {
-    public function loginAction(){
+    public function loginAction()
+    {
+        $this->language->load('auth.login');
         $this->_template->swapTemplate([
             ':view'        => ':action_view',
         ]);
