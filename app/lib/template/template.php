@@ -11,6 +11,10 @@ class Template
     private $_data;
     private $_registry;
 
+    public function swapTemplate($template){
+        $this->_templateParts['template'] = $template;
+    }
+
     public function __get($name)
     {
         return $this->_registry->$name;
