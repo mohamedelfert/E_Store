@@ -42,7 +42,8 @@ class UsersModel extends AbstractModel
         );
     }
 
-    public static function userExists($username){
+    public static function userExists($username)
+    {
         return self::get('SELECT * FROM ' . self::$tableName . ' WHERE Username = "' . $username . '"');
     }
 }

@@ -80,8 +80,9 @@ class UsersController extends AbstractController
     }
 
     public function checkUserExistsAjaxAction(){
-        if (isset($_GET['Username'])){
-            if(UsersModel::userExists($_GET['Username']) !== false){
+        if (isset($_POST['Username'])){
+            header('Content-type: text/plain');
+            if(UsersModel::userExists($this->filterString($_POST['Username'])) !== false){
                 echo 1;
             }else{
                 echo 2;
