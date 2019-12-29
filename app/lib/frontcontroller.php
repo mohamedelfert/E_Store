@@ -14,11 +14,13 @@ class FrontController
 
     private $_registry;
     private $_template;
+    private $_authentication;
 
-    public function __construct(Template $template , Registry $registry)
+    public function __construct(Template $template , Registry $registry , Authentication $auth)
     {
-        $this->_template = $template;
-        $this->_registry = $registry;
+        $this->_template       = $template;
+        $this->_registry       = $registry;
+        $this->_authentication = $auth;
         $this->_parseUrl();
     }
 
@@ -38,6 +40,12 @@ class FrontController
     public function dispatch(){
         $controllerClassName = 'PHPMVC\Controllers\\' . ucfirst($this->_controller) . 'Controller';
         $actionName = $this->_action .'Action';
+
+        if (!$this->_authentication->isAuthorized()){
+            $controllerClassName = 'PHPMVC\Controllers\AuthController';
+            $actionName = 'loginAction';
+        }
+
         if (!class_exists($controllerClassName) || !method_exists($controllerClassName,$actionName)){
             $controllerClassName         = self::NOT_FOUND_CONTROLLER;
             $this->_action = $actionName = self::NOT_FOUND_ACTION;
