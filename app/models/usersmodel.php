@@ -41,4 +41,8 @@ class UsersModel extends AbstractModel
             'SELECT * FROM ' . self::$tableName . ' INNER JOIN app_users_groups ON ' . self::$tableName . ' .GroupId = app_users_groups.GroupId'
         );
     }
+
+    public static function userExists($username){
+        return self::get('SELECT * FROM ' . self::$tableName . ' WHERE Username = "' . $username . '"');
+    }
 }
