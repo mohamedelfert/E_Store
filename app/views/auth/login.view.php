@@ -99,7 +99,7 @@
                 -ms-transform: scale(0.95);
                 transform: scale(0.95);
             }
-            input[type=text] {
+            input[type=text] ,input[type=password]{
                 background-color: #f6f6f6;
                 border: none;
                 color: #0d0d0d;
@@ -123,7 +123,7 @@
                 background-color: #fff;
                 border-bottom: 2px solid #5fbae9;
             }
-            input[type=text]:placeholder {
+            input[type=text]::placeholder {
                 color: #cccccc;
             }
             /* ANIMATIONS */
@@ -239,19 +239,16 @@
                     <div class="fadeIn first">
                         <img src="/images/non-avatar.png" width="20" height="20" id="icon" alt="User Icon" />
                     </div>
-
                     <!-- Login Form -->
                     <form class="app_form" method="post" enctype="application/x-www-form-urlencoded">
                         <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="<?= $text_Username ?>">
-                        <input type="text" id="Password" class="fadeIn third" name="Password" placeholder="<?= $text_Password ?>">
+                        <input type="password" id="Password" class="fadeIn third" name="Password" placeholder="<?= $text_Password ?>">
                         <input type="submit" class="fadeIn fourth" value="<?= $text_button ?>">
                     </form>
-
-                    <!-- Remind Passowrd -->
+                    <!-- Remind Password -->
                     <div id="formFooter">
                         <a class="underlineHover" href="#"><?= $text_forgotpassword ?></a>
                     </div>
-
                 </div>
             </div>
         </div>
