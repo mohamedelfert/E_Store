@@ -46,4 +46,14 @@ class UsersModel extends AbstractModel
     {
         return self::get('SELECT * FROM ' . self::$tableName . ' WHERE Username = "' . $username . '"');
     }
+
+    public static function emailExists($email)
+    {
+        return self::get('SELECT * FROM ' . self::$tableName . ' WHERE Email = "' . $email . '"');
+    }
+
+    public static function phoneExists($phone)
+    {
+        return self::get('SELECT * FROM ' . self::$tableName . ' WHERE PhoneNumber = "' . $phone . '"');
+    }
 }
