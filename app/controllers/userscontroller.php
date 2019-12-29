@@ -22,6 +22,11 @@ class UsersController extends AbstractController
         'GroupId'           => 'required|int'
     ];
 
+    private $_editActionRoles = [
+        'PhoneNumber'       => 'alpha_num|max(15)',
+        'GroupId'           => 'required|int'
+    ];
+
     public function defaultAction()
     {
         $this->language->load('template.common');
@@ -50,6 +55,20 @@ class UsersController extends AbstractController
             $user->LastLogin         = date('Y-m-d H:i:s');
             $user->GroupId           = $this->filterInteger($_POST['GroupId']);
             $user->Status            = 1;
+
+            if (UsersModel::userExists($user->Username)){
+                $this->messenger->add($this->language->get('text_message_exist_username') , Messenger::APP_MESSAGE_ERROR);
+                $this->redirect('/users');
+            }
+            if (UsersModel::emailExists($user->Email)){
+                $this->messenger->add($this->language->get('text_message_exist_email') , Messenger::APP_MESSAGE_ERROR);
+                $this->redirect('/users');
+            }
+            if (UsersModel::phoneExists($user->PhoneNumber)){
+                $this->messenger->add($this->language->get('text_message_exist_phone') , Messenger::APP_MESSAGE_ERROR);
+                $this->redirect('/users');
+            }
+
             if ($user->save()){
                 $this->messenger->add($this->language->get('text_message_success'));
             } else{
@@ -63,20 +82,55 @@ class UsersController extends AbstractController
     public function editAction()
     {
         $id = $this->filterInteger($this->_params[0]);
-        $users = UsersModel::getByPk($id);
-        if ($users === false){
+        $user = UsersModel::getByPk($id);
+        if ($user === false){
             $this->redirect('/users');
         }
-        $this->_data['users']  = $users;
+        $this->_data['users']  = $user;
 
         $this->language->load('template.common');
         $this->language->load('users.default');
         $this->language->load('users.labels');
         $this->language->load('users.errors');
         $this->language->load('users.messages');
+
         $this->_data['groups'] = UsersGroupsModel::getAll();
 
+        if (isset($_POST['submit']) && $this->isValid($this->_editActionRoles, $_POST)){
+            $user->PhoneNumber       = $this->filterString($_POST['PhoneNumber']);
+            $user->GroupId           = $this->filterInteger($_POST['GroupId']);
+
+            if (UsersModel::phoneExists($user->PhoneNumber)){
+                $this->messenger->add($this->language->get('text_message_exist_phone') , Messenger::APP_MESSAGE_ERROR);
+                $this->redirect('/users');
+            }
+
+            if ($user->save()){
+                $this->messenger->add($this->language->get('text_message_update'));
+            } else{
+                $this->messenger->add($this->language->get('text_message_failed') , Messenger::APP_MESSAGE_ERROR);
+            }
+            $this->redirect('/users');
+        }
         $this->_view();
+    }
+
+    public function deleteAction()
+    {
+        $id = $this->filterInteger($this->_params[0]);
+        $user = UsersModel::getByPk($id);
+        if ($user === false){
+            $this->redirect('/users');
+        }
+
+        $this->language->load('users.messages');
+
+        if ($user->delete()){
+            $this->messenger->add($this->language->get('text_message_delete_success'));
+        } else{
+            $this->messenger->add($this->language->get('text_message_delete_failed') , Messenger::APP_MESSAGE_ERROR);
+        }
+        $this->redirect('/users');
     }
 
     public function checkUserExistsAjaxAction()
