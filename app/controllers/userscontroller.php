@@ -78,4 +78,14 @@ class UsersController extends AbstractController
 
         $this->_view();
     }
+
+    public function checkUserExistsAjaxAction(){
+        if (isset($_GET['Username'])){
+            if(UsersModel::userExists($_GET['Username']) !== false){
+                echo 1;
+            }else{
+                echo 2;
+            }
+        }
+    }
 }
