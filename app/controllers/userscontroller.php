@@ -79,7 +79,8 @@ class UsersController extends AbstractController
         $this->_view();
     }
 
-    public function checkUserExistsAjaxAction(){
+    public function checkUserExistsAjaxAction()
+    {
         if (isset($_POST['Username'])){
             header('Content-type: text/plain');
             if(UsersModel::userExists($this->filterString($_POST['Username'])) !== false){
