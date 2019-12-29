@@ -11,7 +11,7 @@
             <form class="app_form" method="post" enctype="application/x-www-form-urlencoded">
                 <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="<?= $text_Username ?>">
                 <input type="password" id="Password" class="fadeIn third" name="Password" placeholder="<?= $text_Password ?>">
-                <input type="submit" class="fadeIn fourth" value="<?= $text_button ?>">
+                <input type="submit" name="submit" class="fadeIn fourth" value="<?= $text_button ?>">
             </form>
             <!-- Remind Password -->
             <div id="formFooter">
