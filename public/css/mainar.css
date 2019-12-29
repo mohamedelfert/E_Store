@@ -623,20 +623,15 @@ a.closeBtn i{
 
 /******************************* Login *******************************************/
 /* BASIC */
-html {
-  background-color: #56baed;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  height: 100vh;
-}
-a {
+
+
+#formContent a {
   color: #92badd;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
 }
-h2 {
+#formContent h2 {
   text-align: center;
   font-size: 16px;
   font-weight: 600;
@@ -646,7 +641,7 @@ h2 {
   color: #cccccc;
 }
 /* STRUCTURE */
-.wrapper {
+.wrapper #formContent {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -839,7 +834,7 @@ input[type=text]::placeholder {
 #icon {
   width:60%;
 }
-img{
+#formContent img{
   width: 15% !important;
   height: 1%;
   margin-top: 5px;
