@@ -589,7 +589,7 @@ a.closeBtn i{
 .found {
   position: absolute;
   top: 10px;
-  left: 25px;
+  right: 25px;
   background: darkred;
   color: #fff;
   width: 20px;
@@ -600,7 +600,7 @@ a.closeBtn i{
 .notfound {
   position: absolute;
   top: 10px;
-  left: 25px;
+  right: 25px;
   background: darkgreen;
   color: #fff;
   width: 20px;
