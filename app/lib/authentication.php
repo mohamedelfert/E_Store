@@ -23,6 +23,6 @@ class Authentication
     }
 
     public function isAuthorized(){
-        return isset($this->_session->u);
+        return isset($this->_session->user);
     }
 }
