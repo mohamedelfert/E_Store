@@ -31,8 +31,7 @@ class UsersModel extends AbstractModel
     protected static $primaryKey = 'UserId';
 
     public function cryptPassword($password){
-        $salt = '$2a$07$yeNCSNwRpYopOhv0TrrReP$';
-        $this->Password = crypt($password, $salt);
+        $this->Password = crypt($password, APP_SALT);
     }
 
     public static function getAll()

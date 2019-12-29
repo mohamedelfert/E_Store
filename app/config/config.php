@@ -28,3 +28,6 @@ defined('APP_DEFAULT_LANGUAGE')     ? null : define ('APP_DEFAULT_LANGUAGE', 'ar
 defined('SESSION_NAME')          ? null : define ('SESSION_NAME', 'MY_ESTORE_SESSION');
 defined('SESSION_LIFE_TIME')     ? null : define ('SESSION_LIFE_TIME', 0);
 defined('SESSION_SAVE_PATH')     ? null : define ('SESSION_SAVE_PATH', APP_PATH . DS . '..' . DS . 'sessions');
+
+// Salt
+defined('APP_SALT')          ? null : define ('APP_SALT', '$2a$07$yeNCSNwRpYopOhv0TrrReP$');
