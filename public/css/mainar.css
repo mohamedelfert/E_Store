@@ -597,3 +597,26 @@ p a.closeBtn{
 a.closeBtn i{
   float: left;
 }
+/***********************************************************************/
+.found {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  background: darkred;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+.notfound {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  background: darkgreen;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
