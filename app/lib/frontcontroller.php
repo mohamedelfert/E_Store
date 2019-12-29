@@ -44,6 +44,8 @@ class FrontController
         if (!$this->_authentication->isAuthorized()){
             $controllerClassName = 'PHPMVC\Controllers\AuthController';
             $actionName = 'loginAction';
+            $this->_controller = 'auth';
+            $this->_action     = 'login';
         }
 
         if (!class_exists($controllerClassName) || !method_exists($controllerClassName,$actionName)){
