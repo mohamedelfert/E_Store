@@ -11,6 +11,7 @@ class Template
     private $_data;
     private $_registry;
 
+    // TODO: implement a better solution
     public function swapTemplate($template){
         $this->_templateParts['template'] = $template;
     }
