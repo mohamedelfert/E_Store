@@ -36,7 +36,7 @@ class UsersController extends AbstractController
     {
         $this->language->load('template.common');
         $this->language->load('users.default');
-        $this->_data['users'] = UsersModel::getAll();
+        $this->_data['users'] = UsersModel::getUsers($this->session->user);
         $this->_view();
     }
 
@@ -95,7 +95,7 @@ class UsersController extends AbstractController
     {
         $id = $this->filterInteger($this->_params[0]);
         $user = UsersModel::getByPk($id);
-        if ($user === false){
+        if ($user === false || $this->session->user->UserId == $id){
             $this->redirect('/users');
         }
         $this->_data['users']  = $user;
@@ -131,7 +131,7 @@ class UsersController extends AbstractController
     {
         $id = $this->filterInteger($this->_params[0]);
         $user = UsersModel::getByPk($id);
-        if ($user === false){
+        if ($user === false || $this->session->user->UserId == $id){
             $this->redirect('/users');
         }
 
