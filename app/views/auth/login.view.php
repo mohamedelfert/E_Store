@@ -1,4 +1,18 @@
 <div id="container" class="login">
+    <?php
+    $messages = $this->messenger->getMessages();
+    //if(!empty($messages)) {
+    //    foreach ($messages as $message){
+    //        echo '<p class="message t' . $message[1] . '">' . $message[0] . '</p>';
+    //    }
+    //}
+
+    if (!empty($messages)){
+        foreach ($messages as $message) {
+            echo '<p class="message t' . $message[1] . '"><a href="" class="closeBtn"><i class="fa fa-times"></i> ' . $message[0] . ' </a></p>';
+        }
+    }
+    ?>
     <div class="card card-container">
         <h1><?= $text_login_title ?></h1>
         <img id="profile-img" class="profile-img-card" src="/images/non-avatar.png" />
