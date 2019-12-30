@@ -47,6 +47,10 @@ class FrontController
             if ($this->_controller != 'auth' && $this->_action != 'login'){
                 $this->redirect('/auth/login');
             }
+        }else{
+            if ($this->_controller == 'auth' && $this->_action == 'login'){
+                isset($_SERVER['HTTP_REFERER']) ? $this->redirect($_SERVER['HTTP_REFERER']) : $this->redirect('/');
+            }
         }
 
         if (!class_exists($controllerClassName) || !method_exists($controllerClassName,$actionName)){
