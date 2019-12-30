@@ -4,8 +4,8 @@
         <div class="list-group">
             <div class="list-group-item" style="text-align:center">
                 <img src="/images/avatar/avatar1.jpg" style="width:30%;border-radius:50%;">
-                <p><a href="/users/profile" class="list-group-item" style="padding:2px"><i class="fa fa-eye"></i>  Mohamed Elfert  </a></p>
-                <p class="list-group-item" style="padding:1px"><i class="fa fa-user-circle"></i>  <?= $text_app_manager ?>  </p>
+                <p><a href="/users/profile" class="list-group-item" style="padding:2px"><i class="fa fa-eye"></i> <?= $this->session->user->profile->FirstName ?> <?= $this->session->user->profile->LastName ?> </a></p>
+                <p class="list-group-item" style="padding:1px"><i class="fa fa-user-circle"></i> <?= $this->session->user->GroupName ?> </p>
             </div>
         </div>
     </div>
