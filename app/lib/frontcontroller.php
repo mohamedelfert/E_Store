@@ -5,6 +5,8 @@ use PHPMVC\LIB\Template\Template;
 
 class FrontController
 {
+    use Helper;
+
     const NOT_FOUND_CONTROLLER = 'PHPMVC\Controllers\\NotFoundController';
     const NOT_FOUND_ACTION     = 'notFoundAction';
 
@@ -42,10 +44,9 @@ class FrontController
         $actionName = $this->_action .'Action';
 
         if (!$this->_authentication->isAuthorized()){
-            $controllerClassName = 'PHPMVC\Controllers\AuthController';
-            $actionName = 'loginAction';
-            $this->_controller = 'auth';
-            $this->_action     = 'login';
+            if ($this->_controller != 'auth' && $this->_action != 'login'){
+                $this->redirect('/auth/login');
+            }
         }
 
         if (!class_exists($controllerClassName) || !method_exists($controllerClassName,$actionName)){
