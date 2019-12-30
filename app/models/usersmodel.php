@@ -14,6 +14,11 @@ class UsersModel extends AbstractModel
     public $GroupId;
     public $Status;
 
+    /**
+     * @var UsersProfilesModel
+     */
+    public $profile;
+
     protected static $tableName = 'app_users';
 
     protected static $tableSchema = array(
@@ -59,7 +64,7 @@ class UsersModel extends AbstractModel
     public static function authenticate($username, $password , $session)
     {
         $password = crypt($password, APP_SALT);
-        $sql = 'SELECT * FROM ' . self::$tableName . ' WHERE Username = "' . $username . '" AND Password = "' . $password . '"';
+        $sql = 'SELECT *, (SELECT GroupName FROM app_users_groups WHERE app_users_groups.GroupId = ' . self::$tableName . '.GroupId) AS GroupName FROM ' . self::$tableName . ' WHERE Username = "' . $username . '" AND Password = "' . $password . '"';
         $foundUser = self::getOne($sql);
         if ($foundUser !== false){
             if ($foundUser->Status == 2){
@@ -67,6 +72,7 @@ class UsersModel extends AbstractModel
             }
             $foundUser->LastLogin = date('Y-m-d H-i-s');
             $foundUser->save();
+            $foundUser->profile = UsersProfilesModel::getByPk($foundUser->UserId);
             $session->user = $foundUser;
             return 1;
         }
