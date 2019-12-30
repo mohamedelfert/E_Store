@@ -6,3 +6,5 @@ $_['text_label_PhoneNumber']        = 'رقم الهاتف';
 $_['text_label_Password']           = 'كلمه المرور';
 $_['text_label_CPassword']          = 'تأكيد كلمه المرور';
 $_['text_label_GroupId']            = 'إختر المجموعه ؟';
+$_['text_label_FirstName']          = 'الاسم الاول';
+$_['text_label_LastName']           = 'الاسم الاخير';

@@ -6,3 +6,5 @@ $_['text_label_PhoneNumber']        = 'Phone Number';
 $_['text_label_Password']           = 'Password';
 $_['text_label_CPassword']          = 'Confirm Password';
 $_['text_label_GroupId']            = 'Select Group ?';
+$_['text_label_FirstName']          = 'FirstName';
+$_['text_label_LastName']           = 'LastName';
