@@ -63,6 +63,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
+                                <label class="control-label col-sm-12" for="Address"> <?= $text_label_Address ?> : </label>
+                                <label class="control-label col-sm-12">
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_Address ?> *" name="Address" id="Address" required value="<?= $this->showValue('Address') ?>" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-12" for="DateOfBirth"> <?= $text_label_DateOfBirth ?> : </label>
+                                <label class="control-label col-sm-12">
+                                    <input type="date" class="form-control" name="DateOfBirth" id="DateOfBirth" required value="<?= $this->showValue('DateOfBirth') ?>" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="PhoneNumber"> <?= $text_label_PhoneNumber ?> : </label>
                                 <label class="control-label col-sm-12">
                                     <input type="text" class="form-control" placeholder="<?= $text_label_PhoneNumber ?> *" name="PhoneNumber" id="PhoneNumber" maxlength="11" required value="<?= $this->showValue('PhoneNumber') ?>" />
