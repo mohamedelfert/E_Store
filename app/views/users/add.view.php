@@ -7,6 +7,22 @@
                     <div class="row register-form">
                         <div class="col-md-4">
                             <div class="form-group col-md-12">
+                                <label class="control-label col-sm-12" for="FirstName"> <?= $text_label_FirstName ?> : </label>
+                                <label class="control-label col-sm-12">
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_FirstName ?> *" name="FirstName" id="FirstName" required value="<?= $this->showValue('FirstName') ?>" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-sm-12" for="LastName"> <?= $text_label_LastName ?> : </label>
+                                <label class="control-label col-sm-12">
+                                    <input type="text" class="form-control" placeholder="<?= $text_label_LastName ?> *" name="LastName" id="LastName" required value="<?= $this->showValue('LastName') ?>" />
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group col-md-12">
                                 <label class="control-label col-sm-12" for="Username"> <?= $text_label_Username ?> : </label>
                                 <label class="control-label col-sm-12">
                                     <input type="text" class="form-control" placeholder="<?= $text_label_Username ?> *" name="Username" id="Username" required value="<?= $this->showValue('Username') ?>" />
@@ -53,10 +69,10 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group col-md-12">
-                                <label class="control-label col-sm-5" for="GroupId"> <?= $text_user_group ?> : </label>
-                                <label class="control-label col-sm-9">
+                                <label class="control-label col-sm-12" for="GroupId"> <?= $text_user_group ?> : </label>
+                                <label class="control-label col-sm-12">
                                     <select class="form-control" name="GroupId" id="GroupId">
                                         <option class="hidden" value=""> <?= $text_label_GroupId ?> </option>
                                         <?php
