@@ -34,10 +34,10 @@ class UsersModel extends AbstractModel
         $this->Password = crypt($password, APP_SALT);
     }
 
-    public static function getAll()
+    public static function getUsers(UsersModel $user)
     {
         return self::get(
-            'SELECT * FROM ' . self::$tableName . ' INNER JOIN app_users_groups ON ' . self::$tableName . ' .GroupId = app_users_groups.GroupId'
+            'SELECT * FROM ' . self::$tableName . ' INNER JOIN app_users_groups ON ' . self::$tableName . ' .GroupId = app_users_groups.GroupId WHERE UserId != ' . $user->UserId
         );
     }
 
