@@ -6,6 +6,7 @@ use PHPMVC\Lib\InputFilter;
 use PHPMVC\Lib\Messenger;
 use PHPMVC\Models\UsersGroupsModel;
 use PHPMVC\Models\UsersModel;
+use PHPMVC\Models\UsersProfilesModel;
 
 class UsersController extends AbstractController
 {
@@ -13,11 +14,15 @@ class UsersController extends AbstractController
     use Helper;
 
     private $_createActionRoles = [
-        'Username'          => 'required|alpha_num|between(4,10)',
-        'Password'          => 'required|min(8)|equal_field(CPassword)',
-        'CPassword'         => 'required|min(8)',
+        'FirstName'         => 'required|alpha|between(3,10)',
+        'LastName'          => 'required|alpha|between(3,10)',
+        'Username'          => 'required|alpha_num|between(3,12)',
+        'Password'          => 'required|min(6)|equal_field(CPassword)',
+        'CPassword'         => 'required|min(6)',
         'Email'             => 'required|email|equal_field(CEmail)',
         'CEmail'            => 'required|email',
+        'Address'           => 'required|alpha_num|max(30)',
+        'DateOfBirth'       => 'required',
         'PhoneNumber'       => 'alpha_num|max(15)',
         'GroupId'           => 'required|int'
     ];
@@ -70,6 +75,13 @@ class UsersController extends AbstractController
             }
 
             if ($user->save()){
+                $userProfile = new UsersProfilesModel();
+                $userProfile->UserId       = $user->UserId;
+                $userProfile->FirstName    = $this->filterString($_POST['FirstName']);
+                $userProfile->LastName     = $this->filterString($_POST['LastName']);
+                $userProfile->Address      = $this->filterString($_POST['Address']);
+                $userProfile->DateOfBirth  = $this->filterString($_POST['DateOfBirth']);
+                $userProfile->save($primaryKeyCheck = false);
                 $this->messenger->add($this->language->get('text_message_success'));
             } else{
                 $this->messenger->add($this->language->get('text_message_failed') , Messenger::APP_MESSAGE_ERROR);
