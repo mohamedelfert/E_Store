@@ -18,6 +18,7 @@ class UsersModel extends AbstractModel
      * @var UsersProfilesModel
      */
     public $profile;
+    public $privileges;
 
     protected static $tableName = 'app_users';
 
@@ -72,7 +73,8 @@ class UsersModel extends AbstractModel
             }
             $foundUser->LastLogin = date('Y-m-d H-i-s');
             $foundUser->save();
-            $foundUser->profile = UsersProfilesModel::getByPk($foundUser->UserId);
+            $foundUser->profile    = UsersProfilesModel::getByPk($foundUser->UserId);
+            $foundUser->privileges = UsersGroupsPrivilegesModel::getPrivilegesForGroups($foundUser->GroupId);
             $session->user = $foundUser;
             return 1;
         }
