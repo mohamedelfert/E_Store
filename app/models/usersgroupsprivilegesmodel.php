@@ -18,7 +18,8 @@ class UsersGroupsPrivilegesModel extends AbstractModel
 
     protected static $primaryKey = 'Id';
 
-    public static function getGroupsPrivileges(UsersGroupsModel $group){
+    public static function getGroupsPrivileges(UsersGroupsModel $group)
+    {
         $groupsPrivileges          = self::getBy(['GroupId' => $group->GroupId]);
         $extractedPrivilegeIds = [];
         if ($groupsPrivileges !== false){
@@ -27,5 +28,18 @@ class UsersGroupsPrivilegesModel extends AbstractModel
             }
         }
         return $extractedPrivilegeIds;
+    }
+
+    public static function getPrivilegesForGroups($groupId)
+    {
+        $sql = 'SELECT * FROM ' . self::$tableName . ' INNER JOIN app_users_privileges ON ' . self::$tableName . '.PrivilegeId = app_users_privileges.PrivilegeId WHERE GroupId = ' . $groupId;
+        $privileges = self::get($sql);
+        $extractedPrivileges = [];
+        if ($privileges !== false){
+            foreach ($privileges as $privilege){
+                $extractedPrivileges[] = $privilege->PrivilegeTitle;
+            }
+        }
+        return $extractedPrivileges;
     }
 }
