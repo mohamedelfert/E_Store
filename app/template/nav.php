@@ -25,9 +25,9 @@
                     <span><?= $text_welcome ?> <?= $this->session->user->Username ?></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a href="/" class="dropdown-item"><i class="fa fa-user"></i> <?= $text_profile ?></a>
-                    <a href="/" class="dropdown-item"><i class="fa fa-key"></i> <?= $text_change_password ?></a>
-                    <a href="/" class="dropdown-item"><i class="fa fa-gear"></i> <?= $text_account_settings ?></a>
+                    <a href="/users/profile" class="dropdown-item"><i class="fa fa-user"></i> <?= $text_profile ?></a>
+                    <a href="/users/changepassword" class="dropdown-item"><i class="fa fa-key"></i> <?= $text_change_password ?></a>
+                    <a href="/users/settings" class="dropdown-item"><i class="fa fa-gear"></i> <?= $text_account_settings ?></a>
                     <a href="/auth/logout" class="dropdown-item"><i class="fa fa-sign-out"></i> <?= $text_log_out ?></a>
                 </div>
             </div>

@@ -29,3 +29,4 @@ $_['text_notifications']          = 'Notifications';
 $_['text_log_out']                = 'Log Out';
 
 $_['text_no_data']                = 'Sorry There Is No Data In This List Now';
+$_['text_access_denied']          = 'Sorry You Don\'t Have Privilege To Access This Page';
