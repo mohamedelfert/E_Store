@@ -1,4 +1,5 @@
 <?php
+$_['title']                     = 'Electronic Store - LogIn';
 $_['text_Username']             = 'Username';
 $_['text_Password']             = 'Password';
 $_['text_button']               = 'Login';
