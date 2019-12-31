@@ -43,13 +43,19 @@ class FrontController
         $controllerClassName = 'PHPMVC\Controllers\\' . ucfirst($this->_controller) . 'Controller';
         $actionName = $this->_action .'Action';
 
+        // Check If The User isAuthorized To Access The Application
         if (!$this->_authentication->isAuthorized()){
             if ($this->_controller != 'auth' && $this->_action != 'login'){
                 $this->redirect('/auth/login');
             }
         }else{
+            // Deny Access To auth/login
             if ($this->_controller == 'auth' && $this->_action == 'login'){
                 isset($_SERVER['HTTP_REFERER']) ? $this->redirect($_SERVER['HTTP_REFERER']) : $this->redirect('/');
+            }
+            // Check If The User Has Access To The URL
+            if (!$this->_authentication->hasAccess($this->_controller , $this->_action)){
+                $this->redirect('/accessdenied');
             }
         }
 
