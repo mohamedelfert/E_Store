@@ -14,15 +14,8 @@ class SuppliersController extends AbstractController
     private $_createActionRoles = [
         'SupplierName'        => 'required|alpha|between(5,20)',
         'SupplierPhone'       => 'required|alpha_num|max(15)',
-        'SupplierEmail'       => 'required|email|equal_field(SupplierCEmail)',
-        'SupplierCEmail'      => 'required|email',
+        'SupplierEmail'       => 'required|email',
         'SupplierAddress'     => 'required|alpha_num|max(30)'
-    ];
-
-    private $_editActionRoles = [
-        'SupplierPhone'       => 'alpha_num|max(15)',
-        'SupplierEmail'       => 'required|email|equal_field(SupplierCEmail)',
-        'SupplierCEmail'      => 'required|email',
     ];
 
     public function defaultAction()
@@ -86,18 +79,11 @@ class SuppliersController extends AbstractController
         $this->language->load('suppliers.errors');
         $this->language->load('suppliers.messages');
 
-        if (isset($_POST['submit']) && $this->isValid($this->_editActionRoles, $_POST)){
-            $supplier->SupplierPhone      = $this->filterString($_POST['SupplierPhone']);
-            $supplier->SupplierEmail      = $this->filterEmail($_POST['SupplierEmail']);
-
-            if (SuppliersModel::emailExists($supplier->SupplierEmail)){
-                $this->messenger->add($this->language->get('text_message_exist_email') , Messenger::APP_MESSAGE_ERROR);
-                $this->redirect('/suppliers');
-            }
-            if (SuppliersModel::phoneExists($supplier->SupplierPhone)){
-                $this->messenger->add($this->language->get('text_message_exist_phone') , Messenger::APP_MESSAGE_ERROR);
-                $this->redirect('/suppliers');
-            }
+        if (isset($_POST['submit']) && $this->isValid($this->_createActionRoles, $_POST)){
+            $supplier->SupplierName          = $this->filterString($_POST['SupplierName']);
+            $supplier->SupplierEmail         = $this->filterEmail($_POST['SupplierEmail']);
+            $supplier->SupplierPhone         = $this->filterString($_POST['SupplierPhone']);
+            $supplier->SupplierAddress       = $this->filterString($_POST['SupplierAddress']);
 
             if ($supplier->save()){
                 $this->messenger->add($this->language->get('text_message_update'));
