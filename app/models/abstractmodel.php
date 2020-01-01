@@ -147,4 +147,7 @@ class AbstractModel
         return $result === false ? false : $result->current();
     }
 
+    public static function getModelTableName(){
+        return static::$tableName;
+    }
 }
