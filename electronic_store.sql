@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2019 at 11:31 PM
+-- Generation Time: Jan 01, 2020 at 11:50 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,16 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `app_clints`
+-- Table structure for table `app_clients`
 --
 
-CREATE TABLE `app_clints` (
-  `ClintId` int(10) UNSIGNED NOT NULL,
-  `ClintName` varchar(30) NOT NULL,
-  `ClintPhone` varchar(15) NOT NULL,
-  `ClintEmail` varchar(30) NOT NULL,
-  `ClintAddress` varchar(50) NOT NULL
+CREATE TABLE `app_clients` (
+  `ClientId` int(10) UNSIGNED NOT NULL,
+  `ClientName` varchar(30) NOT NULL,
+  `ClientPhone` varchar(15) NOT NULL,
+  `ClientEmail` varchar(30) NOT NULL,
+  `ClientAddress` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `app_clients`
+--
+
+INSERT INTO `app_clients` (`ClientId`, `ClientName`, `ClientPhone`, `ClientEmail`, `ClientAddress`) VALUES
+(5, 'احمد خالد محمد', '01102151487', 'ahmed@gmail.com', 'مصر , المنصوره'),
+(6, 'محمد علي السيد', '01111112462', 'm@yahoo.com', 'مصر , سوهاج');
 
 -- --------------------------------------------------------
 
@@ -213,11 +221,19 @@ CREATE TABLE `app_sales_invoices_receipts` (
 
 CREATE TABLE `app_suppliers` (
   `SupplierId` int(10) UNSIGNED NOT NULL,
-  `ClintName` varchar(30) NOT NULL,
-  `ClintPhone` varchar(15) NOT NULL,
-  `ClintEmail` varchar(30) NOT NULL,
-  `ClintAddress` varchar(50) NOT NULL
+  `SupplierName` varchar(30) NOT NULL,
+  `SupplierPhone` varchar(15) NOT NULL,
+  `SupplierEmail` varchar(30) NOT NULL,
+  `SupplierAddress` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `app_suppliers`
+--
+
+INSERT INTO `app_suppliers` (`SupplierId`, `SupplierName`, `SupplierPhone`, `SupplierEmail`, `SupplierAddress`) VALUES
+(1, 'خالد يوسف محمد', '01233336544', 'khaled@yahoo.com', 'Egypt, Tanta'),
+(3, 'سيد حامد متولي', '01555484444', 'sayed@gmail.com', 'مصر , القاهره');
 
 -- --------------------------------------------------------
 
@@ -242,10 +258,10 @@ CREATE TABLE `app_users` (
 --
 
 INSERT INTO `app_users` (`UserId`, `Username`, `Password`, `Email`, `PhoneNumber`, `SubscriptionDate`, `LastLogin`, `GroupId`, `Status`) VALUES
-(1, 'محمد', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '2019-12-28', '2019-12-28 23:20:30', 1, 1),
-(2, 'اسامه', '$2a$07$yeNCSNwRpYopOhv0TrrReOCycf/bQRYwqQUen6DXJCt8b1yNTYs8.', 'osama@gmail.com', '56465456454', '2019-12-28', '2019-12-28 23:20:51', 2, 1),
-(3, 'عاصم', '$2a$07$yeNCSNwRpYopOhv0TrrReOrEnrOTz9pXxJO4dRQE5YHcw6YbHKVWa', 'asem@yahoo.com', '12315644898', '2019-12-28', '2019-12-28 23:21:17', 3, 1),
-(4, 'احمد', '$2a$07$yeNCSNwRpYopOhv0TrrReOCycf/bQRYwqQUen6DXJCt8b1yNTYs8.', 'ahmed@yahoo.com', '12315644898', '2019-12-28', '2019-12-28 23:21:41', 4, 1);
+(1, 'mohamed', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '2019-12-30', '2020-01-01 22:29:04', 1, 1),
+(2, 'علي', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'ali@yahoo.com', '01000000000', '2019-12-30', '2020-01-01 22:28:54', 2, 1),
+(3, 'zinab', '$2a$07$yeNCSNwRpYopOhv0TrrReOTF7T/DenCJpSDRToDBOX7ZBEqfd.CVe', 'zinab@yahoo.com', '01200000000', '2019-12-30', '2019-12-30 21:34:46', 2, 1),
+(4, 'hasan', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'hasan@yahoo.com', '01254888888', '2019-12-30', '2019-12-30 19:43:03', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -299,7 +315,32 @@ INSERT INTO `app_users_groups_privileges` (`Id`, `GroupId`, `PrivilegeId`) VALUE
 (12, 2, 7),
 (13, 3, 7),
 (14, 3, 8),
-(15, 4, 4);
+(15, 4, 4),
+(16, 1, 10),
+(17, 1, 11),
+(18, 1, 12),
+(19, 1, 13),
+(20, 1, 14),
+(21, 1, 15),
+(22, 1, 16),
+(23, 1, 17),
+(24, 1, 18),
+(25, 1, 19),
+(26, 1, 20),
+(27, 1, 21),
+(28, 1, 22),
+(29, 1, 23),
+(30, 1, 24),
+(31, 1, 25),
+(32, 1, 26),
+(33, 1, 27),
+(34, 1, 28),
+(35, 1, 29),
+(36, 1, 30),
+(37, 1, 31),
+(38, 1, 32),
+(39, 1, 33),
+(43, 1, 35);
 
 -- --------------------------------------------------------
 
@@ -321,12 +362,37 @@ INSERT INTO `app_users_privileges` (`PrivilegeId`, `Privilege`, `PrivilegeTitle`
 (1, 'انشاء مستخدم جديد', '/users/add'),
 (2, 'تعديل بيانات مستخدم', '/users/edit'),
 (3, 'حذف مستخدم', '/users/delete'),
-(4, 'انشاء قسم جديد', '/store/createcategories'),
-(5, 'تعديل قسم', '/store/editcategories'),
-(6, 'حذف قسم', '/store/deletecategories'),
-(7, 'انشاء فاتوره', '/sales/create'),
-(8, 'تعديل فاتوره', '/sales/edit'),
-(9, 'حذف فاتوره', '/sales/delete');
+(4, 'انشاء قسم جديد', '/productcategories/add'),
+(5, 'تعديل قسم', '/productcategories/edit'),
+(6, 'حذف قسم', '/productcategories/delete'),
+(7, 'انشاء فاتوره مبيعات', '/sales/add'),
+(8, 'تعديل فاتوره مبيعات', '/sales/edit'),
+(9, 'حذف فاتوره مبيعات', '/sales/delete'),
+(10, 'الصلاحيات', '/privileges/default'),
+(11, 'المستخدمين', '/users/default'),
+(12, 'مجموعات المستخدمين', '/usersgroups/default'),
+(13, 'انشاء مجموعه مستخدمين جديده', '/usersgroups/add'),
+(14, 'تعديل مجموعه مستخدمين', '/usersgroups/edit'),
+(15, 'حذف مجموعه مستخدمين', '/usersgroups/delete'),
+(16, 'اضافة صلاحية جديده', '/privileges/add'),
+(17, 'تعديل صلاحيه', '/privileges/edit'),
+(18, 'حذف صلاحية', '/privileges/delete'),
+(19, 'المبيعات', '/sales/default'),
+(20, 'المشتريات', '/purchases/default'),
+(21, 'انشاء فاتوره مشتريات', '/purchases/add'),
+(22, 'تعديل فاتوره مشتريات', '/purchases/edit'),
+(23, 'حذف فاتوره مشتريات', '/purchases/delete'),
+(24, 'انواع المصروفات', '/expensescategories/default'),
+(25, 'المصروفات اليومية', '/dailyexpenses/default'),
+(26, 'الموردين', '/suppliers/default'),
+(27, 'انشاء مورد', '/suppliers/add'),
+(28, 'تعديل مورد', '/suppliers/edit'),
+(29, 'حذف مورد', '/suppliers/delete'),
+(30, 'العملاء', '/clients/default'),
+(31, 'انشاء عميل', '/clients/add'),
+(32, 'تعديل عميل', '/clients/edit'),
+(33, 'حذف عميل', '/clients/delete'),
+(35, 'اقسام المنتجات', '/productcategories/default');
 
 -- --------------------------------------------------------
 
@@ -344,14 +410,27 @@ CREATE TABLE `app_users_profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `app_users_profiles`
+--
+
+INSERT INTO `app_users_profiles` (`UserId`, `FirstName`, `LastName`, `Address`, `DateOfBirth`, `Avatar`) VALUES
+(1, 'محمد', 'الفرت', 'طنطا', '1995-01-19', NULL),
+(2, 'علي', 'حسن', 'cairo', '2000-09-29', NULL),
+(3, 'زينب', 'خالد', 'سوهاج', '1997-09-24', NULL),
+(4, 'حسن', 'حسن', 'tanta', '1990-11-29', NULL);
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `app_clints`
+-- Indexes for table `app_clients`
 --
-ALTER TABLE `app_clints`
-  ADD PRIMARY KEY (`ClintId`);
+ALTER TABLE `app_clients`
+  ADD PRIMARY KEY (`ClientId`),
+  ADD UNIQUE KEY `ClientName` (`ClientName`),
+  ADD UNIQUE KEY `ClientPhone` (`ClientPhone`),
+  ADD UNIQUE KEY `ClientEmail` (`ClientEmail`);
 
 --
 -- Indexes for table `app_expenses_categories`
@@ -439,7 +518,10 @@ ALTER TABLE `app_sales_invoices_receipts`
 -- Indexes for table `app_suppliers`
 --
 ALTER TABLE `app_suppliers`
-  ADD PRIMARY KEY (`SupplierId`);
+  ADD PRIMARY KEY (`SupplierId`),
+  ADD UNIQUE KEY `SupplierName` (`SupplierName`),
+  ADD UNIQUE KEY `SupplierPhone` (`SupplierPhone`),
+  ADD UNIQUE KEY `SupplierEmail` (`SupplierEmail`);
 
 --
 -- Indexes for table `app_users`
@@ -448,6 +530,7 @@ ALTER TABLE `app_users`
   ADD PRIMARY KEY (`UserId`),
   ADD UNIQUE KEY `Username` (`Username`),
   ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `PhoneNumber` (`PhoneNumber`),
   ADD KEY `GroupId` (`GroupId`);
 
 --
@@ -481,10 +564,10 @@ ALTER TABLE `app_users_profiles`
 --
 
 --
--- AUTO_INCREMENT for table `app_clints`
+-- AUTO_INCREMENT for table `app_clients`
 --
-ALTER TABLE `app_clints`
-  MODIFY `ClintId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `app_clients`
+  MODIFY `ClientId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `app_expenses_categories`
@@ -556,7 +639,7 @@ ALTER TABLE `app_sales_invoices_receipts`
 -- AUTO_INCREMENT for table `app_suppliers`
 --
 ALTER TABLE `app_suppliers`
-  MODIFY `SupplierId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `SupplierId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `app_users`
@@ -568,25 +651,25 @@ ALTER TABLE `app_users`
 -- AUTO_INCREMENT for table `app_users_groups`
 --
 ALTER TABLE `app_users_groups`
-  MODIFY `GroupId` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `GroupId` tinyint(1) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `app_users_groups_privileges`
 --
 ALTER TABLE `app_users_groups_privileges`
-  MODIFY `Id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `app_users_privileges`
 --
 ALTER TABLE `app_users_privileges`
-  MODIFY `PrivilegeId` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `PrivilegeId` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `app_users_profiles`
 --
 ALTER TABLE `app_users_profiles`
-  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -637,7 +720,7 @@ ALTER TABLE `app_purchases_invoices_receipts`
 --
 ALTER TABLE `app_sales_invoices`
   ADD CONSTRAINT `app_sales_invoices_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `app_users` (`UserId`),
-  ADD CONSTRAINT `app_sales_invoices_ibfk_2` FOREIGN KEY (`ClintId`) REFERENCES `app_clints` (`ClintId`);
+  ADD CONSTRAINT `app_sales_invoices_ibfk_2` FOREIGN KEY (`ClintId`) REFERENCES `app_clients` (`ClientId`);
 
 --
 -- Constraints for table `app_sales_invoices_details`
