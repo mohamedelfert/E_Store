@@ -54,8 +54,10 @@ class FrontController
                 isset($_SERVER['HTTP_REFERER']) ? $this->redirect($_SERVER['HTTP_REFERER']) : $this->redirect('/');
             }
             // Check If The User Has Access To The URL
-            if (!$this->_authentication->hasAccess($this->_controller , $this->_action)){
-                $this->redirect('/accessdenied');
+            if ((bool) CHECK_FOR_PRIVILEGES == true){
+                if (!$this->_authentication->hasAccess($this->_controller , $this->_action)){
+                    $this->redirect('/accessdenied');
+                }
             }
         }
 
