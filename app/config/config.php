@@ -31,3 +31,11 @@ defined('SESSION_SAVE_PATH')     ? null : define ('SESSION_SAVE_PATH', APP_PATH 
 
 // Salt
 defined('APP_SALT')          ? null : define ('APP_SALT', '$2a$07$yeNCSNwRpYopOhv0TrrReP$');
+
+// Check For Access Privileges
+defined('CHECK_FOR_PRIVILEGES')          ? null : define ('CHECK_FOR_PRIVILEGES', 1);
+
+// Path For Upload Files
+defined('UPLOAD_DIRECTORY')              ? null : define ('UPLOAD_DIRECTORY', APP_PATH . DS . '..' . DS . 'uploads');
+defined('IMAGES_UPLOAD_DIRECTORY')       ? null : define ('IMAGES_UPLOAD_DIRECTORY', UPLOAD_DIRECTORY . DS . 'images');
+defined('OTHER_FILES_UPLOAD_DIRECTORY')  ? null : define ('OTHER_FILES_UPLOAD_DIRECTORY', UPLOAD_DIRECTORY . DS . 'otherfiles');
