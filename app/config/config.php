@@ -39,3 +39,4 @@ defined('CHECK_FOR_PRIVILEGES')          ? null : define ('CHECK_FOR_PRIVILEGES'
 defined('UPLOAD_DIRECTORY')              ? null : define ('UPLOAD_DIRECTORY', APP_PATH . DS . '..' . DS . 'uploads');
 defined('IMAGES_UPLOAD_DIRECTORY')       ? null : define ('IMAGES_UPLOAD_DIRECTORY', UPLOAD_DIRECTORY . DS . 'images');
 defined('OTHER_FILES_UPLOAD_DIRECTORY')  ? null : define ('OTHER_FILES_UPLOAD_DIRECTORY', UPLOAD_DIRECTORY . DS . 'otherfiles');
+defined('MAX_SIZE_FILE_UPLOAD')          ? null : define ('MAX_SIZE_FILE_UPLOAD', ini_get('upload_max_filesize'));
