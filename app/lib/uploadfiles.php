@@ -27,7 +27,7 @@ class UploadFiles
     public function name($name)
     {
         $this->fileExtension  = strtolower(pathinfo($name,PATHINFO_EXTENSION));
-        $fileName             = substr(base64_encode(uniqid('image_electronic_store','false')) , 0 ,26);
+        $fileName             = substr(base64_encode(uniqid('image_electronic_store','false')) , 0 ,30);
         return $fileName;
     }
 
