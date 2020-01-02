@@ -3,6 +3,7 @@
 namespace PHPMVC\Controllers;
 use PHPMVC\LIB\Helper;
 use PHPMVC\Lib\InputFilter;
+use PHPMVC\Lib\UploadFiles;
 use PHPMVC\Models\ProductCategoriesModel;
 
 class ProductCategoriesController extends AbstractController
@@ -22,31 +23,18 @@ class ProductCategoriesController extends AbstractController
     {
         $this->language->load('template.common');
         $this->language->load('productcategories.default');
+        $this->language->load('productcategories.messages');
 
         if (isset($_POST['submit'])){
             $category = new ProductCategoriesModel();
-            $category->CatName = $this->filterString($_POST['CatName']);
-            echo '<pre>';
-            var_dump($_FILES);
-            echo '</pre>';
-            echo ini_get('upload_max_filesize');
-            echo '</br>';
-            echo ini_get('upload_tmp_dir');
-            echo '</br>';
-            echo ini_get('max_file_uploads');
-            exit;
+            $category->CatName  = $this->filterString($_POST['CatName']);
+            $category->CatImage = (new UploadFiles($_FILES['CatImage']))->upload()->getFileName();
             if ($category->save()){
-                if (isset($_POST['privilege']) && is_array($_POST['privilege'])){
-                    foreach($_POST['privilege'] as $privilegeId){
-                        $groupPrivilege = new UsersGroupsPrivilegesModel();
-                        $groupPrivilege->GroupId     = $group->GroupId;
-                        $groupPrivilege->PrivilegeId = $privilegeId;
-                        $groupPrivilege->save();
-                    }
-                }
-                $this->messenger->add('تم الاضافه بنجاح');
-                $this->redirect('/usersgroups');
+                $this->messenger->add($this->language->get('text_message_success'));
+            }else{
+                $this->messenger->add($this->language->get('text_message_failed') , Messenger::APP_MESSAGE_ERROR);
             }
+            $this->redirect('/productcategories');
         }
         $this->_view();
     }
