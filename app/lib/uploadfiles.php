@@ -60,9 +60,9 @@ class UploadFiles
         if ($this->error != 0){
             throw new \Exception('Sorry File Did not Upload Successfully');
         }elseif (!$this->isAllowedType()){
-            throw new \Exception('Sorry File Type not Allowed');
+            throw new \Exception('Sorry File Type ( ' . $this->fileExtension . ' ) not Allowed');
         }elseif ($this->isNotAllowedSize()){
-            throw new \Exception('Sorry File Size Not Allowed');
+            throw new \Exception('Sorry File Size More Than Size Allowed');
         }else{
             $storageFolder = $this->isImage() ? IMAGES_UPLOAD_DIRECTORY : OTHER_FILES_UPLOAD_DIRECTORY;
             if (is_writable($storageFolder)){
