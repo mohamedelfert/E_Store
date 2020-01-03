@@ -59,7 +59,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-header" href="/productcategories"><i class="fa fa-shopping-cart"></i> <?= $text_store_categories ?> </a>
                         <div class="collapse-divider"></div>
-                        <a class="collapse-header" href="/products"><i class="fa fa-shopping-cart"></i> <?= $text_store_products ?> </a>
+                        <a class="collapse-header" href="/productlist"><i class="fa fa-shopping-cart"></i> <?= $text_store_products ?> </a>
                     </div>
                 </div>
             </li>
