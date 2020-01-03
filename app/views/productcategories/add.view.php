@@ -8,13 +8,13 @@
                         <div class="form-group col-md-12">
                             <label class="control-label col-sm-2" for="CatName"> <?= $text_category_name ?>  :  </label>
                             <label class="control-label col-sm-9">
-                                <input type="text" class="form-control" placeholder="<?= $text_category_name ?> *" name="CatName" id="CatName" required />
+                                <input type="text" class="form-control" placeholder="<?= $text_category_name ?> *" name="CatName" id="CatName" required value="<?= $this->showValue('CatName') ?>"/>
                             </label>
                         </div>
                         <div class="form-group col-md-12">
                             <label class="control-label col-sm-2" for="CatImage"> <?= $text_file ?>  :  </label>
                             <label class="control-label col-sm-9">
-                                <input type="file" class="form-control" name="CatImage" id="CatImage" required />
+                                <input type="file" class="form-control" name="CatImage" id="CatImage" />
                             </label>
                         </div>
                         <input type="submit" name="submit" class="btnRegister"  value="<?= $text_add ?>"/>
