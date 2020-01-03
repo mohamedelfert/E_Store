@@ -22,7 +22,7 @@
                                         if ($product_category !== false) {
                                             foreach ($product_category as $P_category) {
                                                 ?>
-                                                <option value="<?= $P_category->CatId ?>"> <?= $P_category->CatName ?> </option>
+                                                <option value="<?= $P_category->CatId ?>" <?= $this->selectedGroup('CatId',$P_category->CatId,$product) ?>> <?= $P_category->CatName ?> </option>
                                                 <?php
                                             }
                                         }
