@@ -2,8 +2,6 @@
 
 namespace PHPMVC\Lib;
 
-use mysql_xdevapi\Warning;
-
 class UploadFiles
 {
     private $name;
@@ -60,16 +58,17 @@ class UploadFiles
     public function upload()
     {
         if ($this->error != 0){
-            trigger_error('Sorry File Did not Upload Successfully' , E_USER_ERROR);
+            exit('Sorry File Did not Upload Successfully');
         }elseif (!$this->isAllowedType()){
-            trigger_error('Sorry File Type not Allowed' , E_USER_ERROR);
+            exit('Sorry File Type not Allowed');
         }elseif ($this->isNotAllowedSize()){
-            trigger_error('Sorry File Size Not Allowed' , E_USER_ERROR);
+            exit('Sorry File Size Not Allowed');
         }else{
-            if ($this->isImage()){
-                move_uploaded_file($this->tmp_name , IMAGES_UPLOAD_DIRECTORY . DS . $this->getFileName());
+            $storageFolder = $this->isImage() ? IMAGES_UPLOAD_DIRECTORY : OTHER_FILES_UPLOAD_DIRECTORY;
+            if (is_writable($storageFolder)){
+                move_uploaded_file($this->tmp_name , $storageFolder . DS . $this->getFileName());
             }else{
-                move_uploaded_file($this->tmp_name , OTHER_FILES_UPLOAD_DIRECTORY . DS . $this->getFileName());
+                exit('Sorry The Destination Folder Is Not Writable');
             }
         }
         return $this;
