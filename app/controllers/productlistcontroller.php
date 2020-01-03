@@ -50,7 +50,7 @@ class ProductListController extends AbstractController
             $product->Quantity     = $this->filterInteger($_POST['Quantity']);
             $product->BuyPrice     = $this->filterFloat($_POST['BuyPrice']);
             $product->SellPrice    = $this->filterFloat($_POST['SellPrice']);
-            $product->Unit         = $this->filterString($_POST['Unit']);
+            $product->Unit         = $this->filterInteger($_POST['Unit']);
             if (isset($_FILES['ProductImage']) && !empty($_FILES['ProductImage']['name'])){
                 $uploader = new UploadFiles($_FILES['ProductImage']);
                 try{
@@ -99,7 +99,7 @@ class ProductListController extends AbstractController
             $product->Quantity     = $this->filterInteger($_POST['Quantity']);
             $product->BuyPrice     = $this->filterFloat($_POST['BuyPrice']);
             $product->SellPrice    = $this->filterFloat($_POST['SellPrice']);
-            $product->Unit         = $this->filterString($_POST['Unit']);
+            $product->Unit         = $this->filterInteger($_POST['Unit']);
             if (!empty($_FILES['ProductImage']['name'])){
                 // Remove The Old Image
                 if ($product->ProductImage != '' && file_exists(IMAGES_UPLOAD_DIRECTORY . DS . $product->ProductImage)){
