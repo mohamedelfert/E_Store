@@ -47,7 +47,7 @@ class ProductCategoriesController extends AbstractController
                     $uploadError = true;
                 }
             }else{
-                'no-image-post.png';
+                $category->CatImage = 'no-image-post.png';
             }
 
             if ($uploadError === false && $category->save()){
