@@ -5,6 +5,7 @@ use PHPMVC\LIB\Helper;
 use PHPMVC\Lib\InputFilter;
 use PHPMVC\Lib\UploadFiles;
 use PHPMVC\Models\ProductCategoriesModel;
+use PHPMVC\LIB\Messenger;
 
 class ProductCategoriesController extends AbstractController
 {
@@ -31,11 +32,25 @@ class ProductCategoriesController extends AbstractController
         $this->language->load('productcategories.labels');
         $this->language->load('productcategories.messages');
 
+        $uploadError = false;
+
         if (isset($_POST['submit']) && $this->isValid($this->_createActionRoles, $_POST)){
             $category = new ProductCategoriesModel();
             $category->CatName  = $this->filterString($_POST['CatName']);
-            $category->CatImage = (isset($_FILES['CatImage']) && !empty($_FILES['CatImage']['name'])) ? (new UploadFiles($_FILES['CatImage']))->upload()->getFileName() : 'no-image-post.png';
-            if ($category->save()){
+            if (isset($_FILES['CatImage']) && !empty($_FILES['CatImage']['name'])){
+                $uploader = new UploadFiles($_FILES['CatImage']);
+                try{
+                    $uploader->upload();
+                    $category->CatImage = $uploader->getFileName();
+                }catch (\Exception $e){
+                    $this->messenger->add($e->getMessage(), Messenger::APP_MESSAGE_ERROR);
+                    $uploadError = true;
+                }
+            }else{
+                'no-image-post.png';
+            }
+
+            if ($uploadError === false && $category->save()){
                 $this->messenger->add($this->language->get('text_message_success'));
             }else{
                 $this->messenger->add($this->language->get('text_message_failed') , Messenger::APP_MESSAGE_ERROR);
@@ -60,15 +75,26 @@ class ProductCategoriesController extends AbstractController
         $this->language->load('productcategories.labels');
         $this->language->load('productcategories.messages');
 
+        $uploadError = false;
+
         if (isset($_POST['submit']) && $this->isValid($this->_createActionRoles, $_POST)){
             $category->CatName  = $this->filterString($_POST['CatName']);
             if (!empty($_FILES['CatImage']['name'])){
+                // Remove The Old Image
                 if ($category->CatImage != '' && file_exists(IMAGES_UPLOAD_DIRECTORY . DS . $category->CatImage)){
                     unlink(IMAGES_UPLOAD_DIRECTORY . DS . $category->CatImage);
                 }
-                $category->CatImage = (new UploadFiles($_FILES['CatImage']))->upload()->getFileName();
+                // Create A New Image
+                $uploader = new UploadFiles($_FILES['CatImage']);
+                try{
+                    $uploader->upload();
+                    $category->CatImage = $uploader->getFileName();
+                }catch (\Exception $e){
+                    $this->messenger->add($e->getMessage(), Messenger::APP_MESSAGE_ERROR);
+                    $uploadError = true;
+                }
             }
-            if ($category->save()){
+            if ($uploadError === false && $category->save()){
                 $this->messenger->add($this->language->get('text_message_success'));
             }else{
                 $this->messenger->add($this->language->get('text_message_failed') , Messenger::APP_MESSAGE_ERROR);
@@ -90,6 +116,7 @@ class ProductCategoriesController extends AbstractController
         $this->language->load('productcategories.messages');
 
         if ($category->delete()){
+            // Remove The Old Image
             if ($category->CatImage != '' && file_exists(IMAGES_UPLOAD_DIRECTORY . DS . $category->CatImage)){
                 unlink(IMAGES_UPLOAD_DIRECTORY . DS . $category->CatImage);
             }
