@@ -11,7 +11,7 @@ class UploadFiles
     private $tmp_name;
     private $fileExtension;
 
-    private $allowedType = ['png','jpg','jpeg','gif','docx','pdf','zip'];
+    private $allowedType = ['png','jpg','jpeg','gif','ico','docx','pdf','zip'];
 
     public function __construct(array $file)
     {
@@ -25,7 +25,7 @@ class UploadFiles
     public function name($name)
     {
         $this->fileExtension  = strtolower(pathinfo($name,PATHINFO_EXTENSION));
-        $fileName             = substr(base64_encode(uniqid('image_electronic_store','false')) , 0 ,30);
+        $fileName             = uniqid('image_electronic_store','false');
         return $fileName;
     }
 
