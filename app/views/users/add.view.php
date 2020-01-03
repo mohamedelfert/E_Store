@@ -96,7 +96,7 @@
                                         if ($groups !== false) {
                                             foreach ($groups as $group) {
                                         ?>
-                                            <option value="<?= $group->GroupId ?>"> <?= $group->GroupName ?> </option>
+                                            <option value="<?= $group->GroupId ?>" <?= $this->selectedGroup('GroupId',$group->GroupId) ?>> <?= $group->GroupName ?> </option>
                                         <?php
                                             }
                                         }

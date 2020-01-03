@@ -22,7 +22,7 @@
                                         if ($product_category !== false) {
                                             foreach ($product_category as $P_category) {
                                                 ?>
-                                                <option value="<?= $P_category->CatId ?>"> <?= $P_category->CatName ?> </option>
+                                                <option value="<?= $P_category->CatId ?>" <?= $this->selectedGroup('CatId',$P_category->CatId) ?>> <?= $P_category->CatName ?> </option>
                                                 <?php
                                             }
                                         }
@@ -55,10 +55,10 @@
                                 <label class="control-label col-sm-12">
                                     <select class="form-control" name="Unit" id="Unit">
                                         <option class="hidden" value=""> <?= $text_label_Unit ?> </option>
-                                        <option  value="1"> <?= $text_unit_1 ?> </option>
-                                        <option  value="2"> <?= $text_unit_2 ?> </option>
-                                        <option  value="3"> <?= $text_unit_3 ?> </option>
-                                        <option  value="4"> <?= $text_unit_4 ?> </option>
+                                        <option  value="1" <?= $this->selectedGroup('Unit',1) ?>> <?= $text_unit_1 ?> </option>
+                                        <option  value="2" <?= $this->selectedGroup('Unit',2) ?>> <?= $text_unit_2 ?> </option>
+                                        <option  value="3" <?= $this->selectedGroup('Unit',3) ?>> <?= $text_unit_3 ?> </option>
+                                        <option  value="4" <?= $this->selectedGroup('Unit',4) ?>> <?= $text_unit_4 ?> </option>
                                     </select>
                                 </label>
                             </div>
