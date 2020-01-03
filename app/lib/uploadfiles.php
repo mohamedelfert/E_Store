@@ -58,17 +58,17 @@ class UploadFiles
     public function upload()
     {
         if ($this->error != 0){
-            exit('Sorry File Did not Upload Successfully');
+            throw new \Exception('Sorry File Did not Upload Successfully');
         }elseif (!$this->isAllowedType()){
-            exit('Sorry File Type not Allowed');
+            throw new \Exception('Sorry File Type not Allowed');
         }elseif ($this->isNotAllowedSize()){
-            exit('Sorry File Size Not Allowed');
+            throw new \Exception('Sorry File Size Not Allowed');
         }else{
             $storageFolder = $this->isImage() ? IMAGES_UPLOAD_DIRECTORY : OTHER_FILES_UPLOAD_DIRECTORY;
             if (is_writable($storageFolder)){
                 move_uploaded_file($this->tmp_name , $storageFolder . DS . $this->getFileName());
             }else{
-                exit('Sorry The Destination Folder Is Not Writable');
+                throw new \Exception('Sorry The Destination Folder Is Not Writable');
             }
         }
         return $this;
