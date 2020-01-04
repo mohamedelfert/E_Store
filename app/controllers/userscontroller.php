@@ -145,6 +145,14 @@ class UsersController extends AbstractController
         $this->redirect('/users');
     }
 
+    public function profileAction()
+    {
+        $this->language->load('template.common');
+        $this->language->load('users.profile');
+        $this->_data['users'] = UsersModel::getUsers($this->session->user);
+        $this->_view();
+    }
+
     public function checkUserExistsAjaxAction()
     {
         if (isset($_POST['Username'])){
