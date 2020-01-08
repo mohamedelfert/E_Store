@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2020 at 11:50 PM
+-- Generation Time: Jan 07, 2020 at 11:19 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -94,8 +94,16 @@ CREATE TABLE `app_notifications` (
 CREATE TABLE `app_product_categories` (
   `CatId` int(10) UNSIGNED NOT NULL,
   `CatName` varchar(30) NOT NULL,
-  `CatImage` varchar(30) NOT NULL
+  `CatImage` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `app_product_categories`
+--
+
+INSERT INTO `app_product_categories` (`CatId`, `CatName`, `CatImage`) VALUES
+(1, 'موبايلات', 'image_electronic_store5e0f9226b01976.97140867.jpg'),
+(2, 'لابتوب', 'image_electronic_store5e0f92308a15f1.26340406.jpg');
 
 -- --------------------------------------------------------
 
@@ -107,11 +115,26 @@ CREATE TABLE `app_product_list` (
   `ProductId` int(10) UNSIGNED NOT NULL,
   `CatId` int(10) UNSIGNED NOT NULL,
   `ProductName` varchar(30) NOT NULL,
-  `ProductImage` varchar(30) NOT NULL,
-  `Quntity` int(10) UNSIGNED NOT NULL,
-  `Price` decimal(6,0) UNSIGNED NOT NULL,
-  `Barcode` varchar(30) NOT NULL
+  `ProductImage` varchar(70) NOT NULL,
+  `Quantity` int(10) UNSIGNED NOT NULL,
+  `BuyPrice` decimal(8,2) UNSIGNED NOT NULL,
+  `SellPrice` decimal(8,2) UNSIGNED NOT NULL,
+  `Unit` tinyint(1) NOT NULL,
+  `BarCode` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `app_product_list`
+--
+
+INSERT INTO `app_product_list` (`ProductId`, `CatId`, `ProductName`, `ProductImage`, `Quantity`, `BuyPrice`, `SellPrice`, `Unit`, `BarCode`) VALUES
+(1, 1, 'سامسوج نوت 10', 'image_electronic_store5e0f926288ae85.61168872.jpg', 10, '10550.00', '11000.00', 3, NULL),
+(2, 1, 'هواوي ميت 20 برو', 'image_electronic_store5e0f93211244c5.18422220.jpg', 20, '10620.00', '11500.00', 3, NULL),
+(3, 1, 'هواوي بي 30 برو', 'image_electronic_store5e0f93448cabe6.90449264.jpg', 6, '12540.00', '13500.00', 3, NULL),
+(4, 1, 'سامسوج اس 8', 'image_electronic_store5e0f936c13dc94.05220463.jpg', 10, '7500.00', '8050.00', 3, NULL),
+(5, 1, 'هواوي ميت 30 برو', 'image_electronic_store5e0f938e487561.85520017.jpg', 3, '17500.00', '18560.00', 3, NULL),
+(6, 2, 'لابتوب لينوفو ايديا باد 330', 'image_electronic_store5e0f93bc57a4c4.87447524.jpg', 20, '21000.00', '22000.00', 3, NULL),
+(7, 2, 'لابتوب لينوفو ايديا باد ', 'image_electronic_store5e0f93e0a91946.99710673.jpg', 15, '15600.00', '17200.00', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -258,10 +281,11 @@ CREATE TABLE `app_users` (
 --
 
 INSERT INTO `app_users` (`UserId`, `Username`, `Password`, `Email`, `PhoneNumber`, `SubscriptionDate`, `LastLogin`, `GroupId`, `Status`) VALUES
-(1, 'mohamed', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '2019-12-30', '2020-01-01 22:29:04', 1, 1),
-(2, 'علي', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'ali@yahoo.com', '01000000000', '2019-12-30', '2020-01-01 22:28:54', 2, 1),
+(1, 'mohamed', '$2a$07$yeNCSNwRpYopOhv0TrrReOKHdX2KwbMhOY1DrnoxsNk2U9Cy2OteS', 'medo@yahoo.com', '01141521054', '2019-12-30', '2020-01-04 14:18:38', 1, 1),
+(2, 'علي', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'ali@yahoo.com', '01000000000', '2019-12-30', '2020-01-04 14:18:02', 2, 1),
 (3, 'zinab', '$2a$07$yeNCSNwRpYopOhv0TrrReOTF7T/DenCJpSDRToDBOX7ZBEqfd.CVe', 'zinab@yahoo.com', '01200000000', '2019-12-30', '2019-12-30 21:34:46', 2, 1),
-(4, 'hasan', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'hasan@yahoo.com', '01254888888', '2019-12-30', '2019-12-30 19:43:03', 3, 2);
+(4, 'hasan', '$2a$07$yeNCSNwRpYopOhv0TrrReOunIisW1b8.JDsNKxyuF3O29C6ouWfCC', 'hasan@yahoo.com', '01254888888', '2019-12-30', '2019-12-30 19:43:03', 3, 2),
+(8, 'dasdasd', '$2a$07$yeNCSNwRpYopOhv0TrrReOTF7T/DenCJpSDRToDBOX7ZBEqfd.CVe', 'a@a.com', '22222222221', '2020-01-04', '2020-01-04 15:25:17', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -340,7 +364,11 @@ INSERT INTO `app_users_groups_privileges` (`Id`, `GroupId`, `PrivilegeId`) VALUE
 (37, 1, 31),
 (38, 1, 32),
 (39, 1, 33),
-(43, 1, 35);
+(43, 1, 35),
+(44, 1, 36),
+(45, 1, 37),
+(46, 1, 38),
+(47, 1, 39);
 
 -- --------------------------------------------------------
 
@@ -392,7 +420,11 @@ INSERT INTO `app_users_privileges` (`PrivilegeId`, `Privilege`, `PrivilegeTitle`
 (31, 'انشاء عميل', '/clients/add'),
 (32, 'تعديل عميل', '/clients/edit'),
 (33, 'حذف عميل', '/clients/delete'),
-(35, 'اقسام المنتجات', '/productcategories/default');
+(35, 'اقسام المنتجات', '/productcategories/default'),
+(36, 'المنتجات', '/productlist/default'),
+(37, 'اضافه منتج', '/productlist/add'),
+(38, 'تعديل منتج', '/productlist/edit'),
+(39, 'حذف منتج', '/productlist/delete');
 
 -- --------------------------------------------------------
 
@@ -406,7 +438,7 @@ CREATE TABLE `app_users_profiles` (
   `LastName` varchar(10) NOT NULL,
   `Address` varchar(50) DEFAULT NULL,
   `DateOfBirth` date DEFAULT NULL,
-  `Avatar` varchar(30) DEFAULT NULL
+  `Avatar` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -417,7 +449,8 @@ INSERT INTO `app_users_profiles` (`UserId`, `FirstName`, `LastName`, `Address`, 
 (1, 'محمد', 'الفرت', 'طنطا', '1995-01-19', NULL),
 (2, 'علي', 'حسن', 'cairo', '2000-09-29', NULL),
 (3, 'زينب', 'خالد', 'سوهاج', '1997-09-24', NULL),
-(4, 'حسن', 'حسن', 'tanta', '1990-11-29', NULL);
+(4, 'حسن', 'حسن', 'tanta', '1990-11-29', NULL),
+(8, 'dasd', 'dsadas', 'sda', '2019-11-01', NULL);
 
 --
 -- Indexes for dumped tables
@@ -591,13 +624,13 @@ ALTER TABLE `app_notifications`
 -- AUTO_INCREMENT for table `app_product_categories`
 --
 ALTER TABLE `app_product_categories`
-  MODIFY `CatId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `CatId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `app_product_list`
 --
 ALTER TABLE `app_product_list`
-  MODIFY `ProductId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ProductId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `app_purchases_invoices`
@@ -645,7 +678,7 @@ ALTER TABLE `app_suppliers`
 -- AUTO_INCREMENT for table `app_users`
 --
 ALTER TABLE `app_users`
-  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `app_users_groups`
@@ -657,19 +690,19 @@ ALTER TABLE `app_users_groups`
 -- AUTO_INCREMENT for table `app_users_groups_privileges`
 --
 ALTER TABLE `app_users_groups_privileges`
-  MODIFY `Id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `Id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `app_users_privileges`
 --
 ALTER TABLE `app_users_privileges`
-  MODIFY `PrivilegeId` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `PrivilegeId` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `app_users_profiles`
 --
 ALTER TABLE `app_users_profiles`
-  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `UserId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
